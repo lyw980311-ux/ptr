@@ -8,7 +8,7 @@
 <meta name="description" content="A bench that reads your face — and gives way when it cannot. An interactive installation on recognition, readability, and permission.">
 <meta property="og:title" content="Permission to Remain">
 <meta property="og:description" content="A bench that reads your face — and gives way when it cannot.">
-<meta property="og:image" content="install.jpg">
+<meta property="og:image" content="venue.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
 
   /* hero */
   .hero{position:relative;min-height:86vh;display:flex;flex-direction:column;justify-content:flex-end;
-        background:#000 url('install.jpg') center/cover no-repeat}
+        background:#000 url('venue.jpg') center/cover no-repeat}
   .hero::after{content:'';position:absolute;inset:0;
         background:linear-gradient(180deg,rgba(10,10,10,.35) 0%,rgba(10,10,10,0) 30%,rgba(10,10,10,.6) 68%,rgba(10,10,10,.97) 100%)}
   .hero-in{position:relative;z-index:1;padding:0 22px 40px}
@@ -92,19 +92,14 @@
     </div>
   </header>
 
-  <!-- ───── 90s FILM ─────  (paste your YouTube/Vimeo embed inside .ratio) -->
+  <!-- ───── INSTALLATION FOOTAGE ─────  (swap src for the 90s film when it's ready) -->
   <div class="film">
-    <h2 class="amber">▶ 90-Second Film</h2>
-    <div class="ratio">
-      <!-- When the film is online, replace this <div class="poster"> with, e.g.:
-           <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Permission to Remain"
-                   allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-                   allowfullscreen></iframe>  -->
-      <div class="poster">
-        <div class="play">▶</div>
-        <div>FILM COMING SOON</div>
-      </div>
-    </div>
+    <h2 class="amber">▶ The installation</h2>
+    <video controls playsinline preload="metadata" poster="film_poster.jpg"
+           style="display:block;width:100%;max-width:420px;margin:0 auto;
+                  border:1px solid var(--line);border-radius:8px;background:#000">
+      <source src="film.mp4" type="video/mp4">
+    </video>
   </div>
 
   <!-- ───── WHAT IT IS ───── -->
