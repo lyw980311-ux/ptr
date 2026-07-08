@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0A0A0A">
+<title>Permission to Remain — Yong Woo Lee</title>
+<meta name="description" content="A bench that reads your face — and gives way when it cannot. An interactive installation on recognition, readability, and permission.">
+<meta property="og:title" content="Permission to Remain">
+<meta property="og:description" content="A bench that reads your face — and gives way when it cannot.">
+<meta property="og:image" content="install.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0A0A; --panel:#101317; --line:#1d2228;
+    --fg:#ECECEC; --muted:#9AA3AD; --dim:#6E7681;
+    --green:#3FB950; --red:#E5534B; --amber:#D8B33A;
+    --mono:'Share Tech Mono','Courier New',monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.65;
+       font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:620px;margin:0 auto}
+
+  /* hero */
+  .hero{position:relative;min-height:86vh;display:flex;flex-direction:column;justify-content:flex-end;
+        background:#000 url('install.jpg') center/cover no-repeat}
+  .hero::after{content:'';position:absolute;inset:0;
+        background:linear-gradient(180deg,rgba(10,10,10,.35) 0%,rgba(10,10,10,0) 30%,rgba(10,10,10,.6) 68%,rgba(10,10,10,.97) 100%)}
+  .hero-in{position:relative;z-index:1;padding:0 22px 40px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.32em;color:var(--green);
+           text-transform:uppercase;margin-bottom:14px}
+  .hero h1{font-family:var(--mono);font-size:34px;line-height:1.05;letter-spacing:.04em;
+           font-weight:400;text-shadow:0 2px 24px rgba(0,0,0,.9)}
+  .tagline{font-size:18px;color:var(--green);margin-top:14px;text-shadow:0 1px 10px rgba(0,0,0,.9)}
+  .byline{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;color:var(--muted);margin-top:18px}
+
+  /* sections */
+  section{padding:34px 22px;border-top:1px solid var(--line)}
+  h2{font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;
+     color:var(--green);margin-bottom:16px;font-weight:400}
+  h2.red{color:var(--red)} h2.amber{color:var(--amber)}
+  p{margin-bottom:14px} p:last-child{margin-bottom:0}
+  em{color:var(--amber);font-style:normal}
+  strong{color:#fff;font-weight:600}
+  .lead{font-size:19px;line-height:1.55}
+
+  /* video */
+  .film{padding:30px 22px;border-top:1px solid var(--line)}
+  .ratio{position:relative;width:100%;aspect-ratio:16/9;background:var(--panel);
+         border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+          gap:10px;color:var(--dim);text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.18em}
+  .poster .play{width:54px;height:54px;border:1px solid var(--green);border-radius:50%;
+          display:flex;align-items:center;justify-content:center;color:var(--green);font-size:20px}
+
+  /* facts strip */
+  .stat{font-family:var(--mono);color:var(--amber);font-size:15px;letter-spacing:.04em;
+        border-left:2px solid var(--amber);padding-left:14px;margin:6px 0 18px}
+
+  /* links */
+  .links a{display:flex;justify-content:space-between;align-items:center;gap:12px;
+           text-decoration:none;color:var(--fg);font-family:var(--mono);font-size:14px;letter-spacing:.04em;
+           padding:15px 0;border-bottom:1px solid var(--line)}
+  .links a:first-of-type{border-top:1px solid var(--line)}
+  .links a .arw{color:var(--green)}
+  .links a:active{color:var(--green)}
+
+  .refs{font-family:var(--mono);font-size:11.5px;line-height:1.9;color:var(--dim);letter-spacing:.02em}
+  footer{padding:28px 22px 48px;border-top:1px solid var(--line);
+         font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--dim)}
+  footer .q{color:var(--green);font-size:14px;margin-bottom:14px;letter-spacing:.08em}
+  @media(min-width:560px){ .hero h1{font-size:42px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ───── HERO ───── -->
+  <header class="hero">
+    <div class="hero-in">
+      <div class="eyebrow">Interactive Installation · 2026</div>
+      <h1>PERMISSION<br>TO REMAIN</h1>
+      <div class="tagline">A bench that reads your face — and gives way when it cannot.</div>
+      <div class="byline">Yong Woo Lee · Information Experience Design, RCA</div>
+    </div>
+  </header>
+
+  <!-- ───── 90s FILM ─────  (paste your YouTube/Vimeo embed inside .ratio) -->
+  <div class="film">
+    <h2 class="amber">▶ 90-Second Film</h2>
+    <div class="ratio">
+      <!-- When the film is online, replace this <div class="poster"> with, e.g.:
+           <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Permission to Remain"
+                   allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+                   allowfullscreen></iframe>  -->
+      <div class="poster">
+        <div class="play">▶</div>
+        <div>FILM COMING SOON</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ───── WHAT IT IS ───── -->
+  <section>
+    <h2>What it is</h2>
+    <p class="lead">A camera reads your face and decides whether it is <em>readable</em> enough to be recognised.</p>
+    <p>The result is delivered through the seat beneath you. When the system cannot read you, the bench slowly tilts. Access is not refused — it is <strong>quietly withdrawn</strong>.</p>
+  </section>
+
+  <!-- ───── WHERE IT COMES FROM ───── -->
+  <section>
+    <h2 class="red">Where it comes from</h2>
+    <div class="stat">Incheon, 2021 — ≈170 million facial images → private AI, without consent.</div>
+    <p>Facial images collected at a Korean airport, from foreign nationals and citizens alike, were handed to private companies to train AI — without consent.</p>
+    <p>Faces taken from <strong>some</strong> become the standard of <em>readable</em> for <strong>everyone</strong>, contestable by <strong>no one</strong>. The work calls this <em>extractive legibility</em>.</p>
+  </section>
+
+  <!-- ───── THE STANDARD IS ONE FACE ───── -->
+  <section>
+    <h2 class="amber">The standard is one face</h2>
+    <p>This system measures you against a single enrolled face — <strong>the artist's own</strong>. “Readability” is not neutral; it is anchored to one specific body.</p>
+    <p>Most people are read as <em>unreadable</em>.</p>
+  </section>
+
+  <!-- ───── WHAT IT ASKS ───── -->
+  <section>
+    <h2>What it asks</h2>
+    <p>Recognition here is not about identity. It asks whether you can be <em>read</em> — and turns that into permission.</p>
+    <p>Some visitors are shown their score; others only feel the bench. Both adjust, trying to raise it. Neither can — the standard never moves. The same logic now runs through borders, welfare, banking, and digital ID.</p>
+  </section>
+
+  <!-- ───── DATA ───── -->
+  <section>
+    <h2>Your data</h2>
+    <p style="color:var(--muted)">No facial images or biometric data are stored. The system keeps only a recognition score, coarse age/gender/expression estimates, posture behaviour, and an optional survey answer — for academic research only.</p>
+  </section>
+
+  <!-- ───── READ MORE ─────  (replace # with real URLs) -->
+  <section class="links">
+    <h2>Read more</h2>
+    <a href="#"><span>Full essay &amp; research (IRP)</span><span class="arw">→</span></a>
+    <a href="#"><span>The argument, in diagrams</span><span class="arw">→</span></a>
+    <a href="mailto:lyw980311@gmail.com"><span>Contact the artist</span><span class="arw">→</span></a>
+  </section>
+
+  <!-- ───── REFERENCES ───── -->
+  <section>
+    <h2>Sources</h2>
+    <p class="refs">
+      Incheon disclosure — Rep. Park Joo-min, Oct 2021.<br>
+      NIST FRVT (2019) · Buolamwini &amp; Gebru, <em>Gender Shades</em> (2018).<br>
+      James C. Scott, <em>Seeing Like a State</em> · Robert Rosenberger, <em>Callous Objects</em>.<br>
+      Vaccaro et al., “Illusion of Control,” CHI 2018.
+    </p>
+  </section>
+
+  <footer>
+    <div class="q">Who is allowed to remain?</div>
+    © Yong Woo Lee, 2026 · Permission to Remain
+  </footer>
+
+</div>
+</body>
+</html>
