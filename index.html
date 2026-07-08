@@ -28,11 +28,11 @@
   .wrap{max-width:620px;margin:0 auto}
 
   /* hero */
-  .hero{position:relative;min-height:86vh;display:flex;flex-direction:column;justify-content:flex-end;
-        background:#000 url('venue.jpg') center/cover no-repeat}
+  .hero{position:relative;background:#000}
+  .hero .bg{display:block;width:100%;height:auto}   /* full photo, no crop */
   .hero::after{content:'';position:absolute;inset:0;
-        background:linear-gradient(180deg,rgba(10,10,10,.35) 0%,rgba(10,10,10,0) 30%,rgba(10,10,10,.6) 68%,rgba(10,10,10,.97) 100%)}
-  .hero-in{position:relative;z-index:1;padding:0 22px 40px}
+        background:linear-gradient(180deg,rgba(10,10,10,.25) 0%,rgba(10,10,10,0) 30%,rgba(10,10,10,.55) 70%,rgba(10,10,10,.97) 100%)}
+  .hero-in{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:0 22px 36px}
   .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.32em;color:var(--green);
            text-transform:uppercase;margin-bottom:14px}
   .hero h1{font-family:var(--mono);font-size:34px;line-height:1.05;letter-spacing:.04em;
@@ -84,6 +84,7 @@
 
   <!-- ───── HERO ───── -->
   <header class="hero">
+    <img class="bg" src="venue.jpg" alt="Permission to Remain — installation view">
     <div class="hero-in">
       <div class="eyebrow">Interactive Installation · 2026</div>
       <h1>PERMISSION<br>TO REMAIN</h1>
