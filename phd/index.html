@@ -134,6 +134,26 @@
     font-size:14px;resize:vertical;line-height:1.6}
   .note textarea::placeholder{color:var(--ink-faint)}
 
+
+  .reads{margin:16px 0 0;padding:0;list-style:none;border-top:1px dashed var(--rule);padding-top:12px}
+  .reads .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+              text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+  .reads li{font-size:13.5px;color:var(--ink-soft);padding:6px 0 6px 14px;position:relative;line-height:1.6}
+  .reads li::before{content:"";position:absolute;left:0;top:14px;width:5px;height:5px;
+                    border-radius:50%;background:var(--accent)}
+  .reads a{color:var(--ink);font-weight:500;text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+  .reads a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+  .reads .meta{font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-left:6px}
+  .reads .why{display:block;color:var(--ink-faint);font-size:12.5px;margin-top:1px}
+  .callout{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;
+           padding:16px 20px;margin:34px 0 0;font-size:14.5px;max-width:64ch}
+  .callout b{color:var(--ink)}
+  .rgroup{margin-top:26px}
+  .rgroup h3{font-size:12px;font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;
+             color:var(--ink-faint);margin:0 0 10px;font-weight:500}
+  .rgroup .reads{border-top:0;padding-top:0;margin-top:0}
+  .rgroup .reads li{font-size:14.5px;padding-left:16px}
+  .rgroup .reads li::before{top:15px}
   section{margin-top:56px}
   .lede{font-size:15px;color:var(--ink-soft);max-width:56ch;margin:10px 0 0}
   ol.corr{list-style:none;counter-reset:c;padding:0;margin:22px 0 0}
@@ -209,6 +229,46 @@
   <p class="hint">행을 누르면 근거가 열린다. 메모도 남길 수 있다.</p>
 </div>
 <div id="list"></div>
+<div class="callout">
+  <b>셋이 한 네트워크에 있다.</b> Luger(Edinburgh) · Urquhart(Edinburgh) · Shklovski(Copenhagen)는
+  모두 EU 훈련네트워크 <a href="https://dcode-network.eu/supervisors/prof-irina-shklovski/" target="_blank" rel="noopener">DCODE</a>의
+  지도교수다. 내 상위 후보 세 사람이 같은 펀딩 구조 안에 있다는 뜻이고, 차기 코호트가 열리면
+  한 번의 지원으로 셋 다 닿을 수 있다. 확인할 것 목록의 마지막 항목이 왜 거기 있는지의 이유.
+</div>
+
+<section>
+  <h2>내 프레이밍을 네가 직접 판단하기 위한 읽을거리</h2>
+  <p class="lede">위 순위는 "설치를 연구 도구로 쓴다"는 전제 위에 서 있다. 그 전제가 학계에서
+  어떤 위치인지 네가 직접 봐야 이 페이지를 믿을지 말지 정할 수 있다. 짧은 것부터.</p>
+
+  <div class="rgroup">
+    <h3>방법론 — 30분이면 되는 것</h3>
+    <ul class="reads">
+      <li><a href="https://www.designdisciplin.com/p/crash-course-in-research-through" target="_blank" rel="noopener">Crash Course in Research through Design</a><span class="meta">Baytaş · 블로그</span><span class="why">RtD가 뭔지 한 번에 잡히는 가장 읽기 쉬운 글. 여기서 시작.</span></li>
+      <li><a href="https://arl.human.cornell.edu/879Readings/Research%20through%20Design.pdf" target="_blank" rel="noopener">Research Through Design as a Method for Interaction Design Research in HCI</a><span class="meta">Zimmerman, Forlizzi, Evenson · CHI 2007</span><span class="why">HCI가 RtD를 정식 방법으로 받아들인 논문. 네가 "installation as instrument"라고 부르는 것의 학술적 근거.</span></li>
+      <li><a href="https://dl.acm.org/doi/10.1145/1858171.1858228" target="_blank" rel="noopener">An Analysis and Critique of Research through Design</a><span class="meta">Zimmerman, Stolterman, Forlizzi · DIS 2010</span><span class="why">RtD가 어디서 약한지를 만든 사람들이 직접 쓴 비판. 심사위원이 던질 질문이 여기 있다.</span></li>
+    </ul>
+  </div>
+
+  <div class="rgroup">
+    <h3>계보 — 예술연구와 HCI 사이 어디에 설 것인가</h3>
+    <ul class="reads">
+      <li><span style="font-weight:500;color:var(--ink)">Frayling, "Research in Art and Design" (1993)</span><span class="meta">Royal College of Art Research Papers</span><span class="why">research <em>into</em> / <em>for</em> / <em>through</em> art&amp;design의 세 구분이 나온 원문. 네 학교 이름이 붙어 있다. 도서관·SciSpace에서 검색.</span></li>
+      <li><span style="font-weight:500;color:var(--ink)">Gaver, "What Should We Expect from Research Through Design?" (CHI 2012)</span><span class="why">RtD는 이론을 "생산"하는 게 아니라 "제안"한다는 입장. Zimmerman과 정반대라, 둘을 나란히 읽어야 네 위치가 보인다.</span></li>
+    </ul>
+  </div>
+
+  <div class="rgroup">
+    <h3>네 논지의 학술적 이웃 — 이미 정리해둔 지도에서</h3>
+    <ul class="reads">
+      <li><span style="font-weight:500;color:var(--ink)">Ananny &amp; Crawford, "Seeing without knowing" (2018)</span><span class="why">투명성 이상(ideal)의 한계 — 네 F1·F4가 앉을 계보.</span></li>
+      <li><span style="font-weight:500;color:var(--ink)">Vaccaro et al., "The Illusion of Control" (CHI 2018)</span><span class="why">네 연구 패러다임의 원형.</span></li>
+      <li><span style="font-weight:500;color:var(--ink)">Benford et al., "Performance-Led Research in the Wild" (TOCHI 2013) · Elsden et al., "On Speculative Enactments" (CHI 2017)</span><span class="why">네 방법을 이미 이름 붙여놓은 두 논문. 방법론 장 쓰기 전에 필독.</span></li>
+    </ul>
+    <p class="lede" style="margin-top:14px;font-size:13.5px">이 세 묶음은 <code style="font-family:var(--mono);font-size:12px">docs/LITERATURE_SEARCH_MAP.md</code>에 검색어·시드 논문까지 정리돼 있다. 위 항목은 SciSpace / Semantic Scholar에서 제목으로 검색.</p>
+  </div>
+</section>
+
 
 <section>
   <h2>이번에 뒤집힌 것 세 가지</h2>
@@ -285,43 +345,74 @@ const DATA = [
   { id:'edi', name:'Institute for Design Informatics', place:'University of Edinburgh',
     fit:9.5, dual:9.5, fund:7, fundLabel:'SGSAH / AHRC DTP', fundClass:'mid',
     sup:'Ewa Luger · Lachlan Urquhart · Chris Speed · Benjamin Bach',
-    why:'Edinburgh College of Art와 School of Informatics의 <strong>공동 institute</strong>다 — 네게 필요한 이중 지도가 협상 대상이 아니라 구조에 이미 들어 있다. Luger는 AI 윤리와 알고리즘 책임성을, Urquhart는 법·규제와 HCI의 접점을 다루는데 후자가 네 거버넌스 축이 사는 자리다.',
-    flags:['ECA + Informatics 공동'] },
+    why:'Edinburgh College of Art와 School of Informatics의 <strong>공동 institute</strong>다 — 네게 필요한 이중 지도가 협상 대상이 아니라 구조에 이미 들어 있다. Luger는 <strong>비전문가에게 AI가 어떻게 "이해 가능"해지는가</strong>와 권력 분배·디지털 배제를 다루고, Urquhart는 지금 <strong>얼굴인식 거버넌스를 공동설계하는 프로젝트(Face[REC])</strong>를 돌리고 있다. 둘 다 네 작업의 정중앙이다.',
+    flags:['ECA + Informatics 공동','Face[REC] 진행 중','DCODE'],
+    reads:[
+      {t:'Face[REC]: Co-Designing Live Facial Recognition Governance', m:'Urquhart · 2026.8–2027.4', u:'https://www.scottishlegal.com/articles/edinburgh-law-school-researchers-awarded-funding-for-live-facial-recognition-governance-project', w:'네 주제 그 자체가 지금 스코틀랜드 경찰 대상으로 진행 중. 메일의 첫 문장은 여기서 나와야 한다.'},
+      {t:'Accountable Design: Bringing Law into Human-Centred Computing', m:'Urquhart · CUP · 2026.8', u:'https://lachlansresearch.com/', w:'지난달 나온 단행본. 그의 프레임 전체가 여기 있다.'},
+      {t:'The Forgotten Margins of AI Ethics', m:'Luger 공저 · arXiv', u:'https://arxiv.org/pdf/2205.04221', w:'AI 윤리에서 빠진 주변부 — 네 "배제"를 그가 어떤 언어로 말하는지.'},
+      {t:'Ewa Luger — ECA 프로필', m:'현재 프로젝트 목록', u:'https://www.eca.ed.ac.uk/profile/professor-ewa-luger', w:'"intelligibility to non-expert users"가 핵심어. 네 F3와 직결.'},
+      {t:'Design Informatics PhD — 지원 안내', m:'프로그램 페이지', u:'https://designinformatics.org/study/design-informatics-phd/', w:'지도교수 사전 컨택을 명시적으로 권장한다.'}
+    ] },
   { id:'delft', name:'Industrial Design Engineering', place:'TU Delft · Netherlands',
     fit:9.5, dual:8.5, fund:10, fundLabel:'급여직 · 월 €3k 내외, 학비 0', fundClass:'good',
     sup:'Gerd Kortuem · Ianus Keller · Neelke Doorn · Kars Alfrink (postdoc)',
     why:'<em>Contestable AI by Design</em>의 제도적 본거지 — 네 future direction 01이 딛고 선 바로 그 프레임워크다. Alfrink가 포닥으로 있어서 첫 컨택의 마찰이 가장 적다. 가중치를 어떻게 바꿔도 상위에서 잘 버티는데, 한 축을 희생해 다른 축을 얻는 게 아니라 세 축 모두 높기 때문이다.',
-    flags:['contestability의 본거지','포지션 공고제'] },
+    flags:['contestability의 본거지','포지션 공고제'],
+    reads:[
+      {t:'Contestable AI by Design (박사논문 전문)', m:'Alfrink · TU Delft · 2024', u:'https://repository.tudelft.nl/islandora/object/uuid:be74f232-8507-4394-b678-f617308158bc', w:'네 다음 단계의 설계도. 최소한 서론과 프레임워크 장은 읽고 가야 한다.'},
+      {t:'Contestable AI by Design: Towards a Framework', m:'Alfrink, Keller, Kortuem, Doorn · Minds & Machines 2023', u:'https://research.tudelft.nl/en/publications/contestable-ai-by-design-towards-a-framework/', w:'논문 판. 논문 자체보다 짧다.'},
+      {t:'Kars Alfrink — 현재 작업 "People\\'s Compute"', m:'TU Delft 프로필', u:'https://www.tudelft.nl/en/ide/about-ide/people/alfrink-cp', w:'그가 지금 어디로 가고 있는지. 컨택 메일은 여기에 맞춰야 한다.'}
+    ] },
   { id:'ncl', name:'Open Lab', place:'Newcastle University',
     fit:9, dual:9, fund:7.5, fundLabel:'NINE DTP / EPSRC', fundClass:'mid',
     sup:'Clara Crivellaro · Vasilis Vlachokyriakos · Abigail Durrant · Dave Kirk',
     why:'Digital Civics는 다른 이름의 participatory legibility다 — 실제 사람들과 함께 실제 제도에 개입하는 것. 배포연구 문화가 강해서, 야생에 놓인 벤치가 "변호해야 할 특이한 선택"이 아니라 방법으로 읽힌다.',
-    flags:['배포연구 문화'] },
+    flags:['배포연구 문화'],
+    reads:[
+      {t:'Digital Civics: Citizen Empowerment With and Through Technology', m:'Vlachokyriakos, Crivellaro 외 · CHI EA 2016', u:'https://ledantec.net/wp-content/uploads/2016/02/sig0111-vlachokyriakos.pdf', w:'Open Lab의 창립 선언문. 짧다. 이 어휘로 네 작업을 다시 써볼 것.'},
+      {t:'Vasilis Vlachokyriakos — 프로필', m:'Open Lab', u:'https://openlab.ncl.ac.uk/people/vasilis-vlachokyriakos', w:'최근 프로젝트가 네 "제도에 이의제기"와 맞는지 확인.'}
+    ] },
   { id:'ku', name:'Computer Science &amp; Communication', place:'University of Copenhagen',
     fit:9.5, dual:7.5, fund:10, fundLabel:'급여직 (덴마크 박사)', fundClass:'good',
     sup:'Irina Shklovski (Professor of Communication and Computing)',
     why:'Shklovski의 연구 주제가 <strong>대규모 개인정보 수집 앞에서 사람들이 느끼는 무력감</strong>이다 — 네 enacted comprehension을 반대편에서 도달한 셈이다. DCODE 훈련네트워크 공동연구자이기도 하다. 물리적 제작 지도는 상위 세 곳보다 약하지만, 네가 확장하려는 이론 쪽은 더 강하다.',
-    flags:['네 발견과 정면으로 겹침','DCODE 네트워크'] },
+    flags:['네 발견과 정면으로 겹침','DCODE'],
+    reads:[
+      {t:'Empowering Resignation', m:'Shklovski 공저 · CHI 2021', u:'https://dl.acm.org/doi/fullHtml/10.1145/3411764.3445293', w:'제목이 곧 논지 — 체념하면서 동시에 통제감을 느끼는 상태. 네 F2·F3의 프라이버시 판. <strong>가장 먼저 읽을 것.</strong>'},
+      {t:'Leakiness and Creepiness in App Space', m:'Shklovski 외 · CHI 2014', u:'https://dl.acm.org/doi/10.1145/2556288.2557421', w:'"침범당한 느낌"을 어떻게 이론화하는지 — 네 벤치가 만드는 감각과 같은 종류.'},
+      {t:'Impossible Futures Lab', m:'그의 연구실', u:'https://impossiblefutureslab.dk/people/irina-shklovski/', w:'연구실 톤과 현재 사람들. 메일은 연구실 방향에 맞춰서.'}
+    ] },
   { id:'gold', name:'Arts &amp; Computational Technology', place:'Goldsmiths, University of London',
     fit:10, dual:9, fund:3, fundLabel:'연 £20,000 · 장학금 경쟁뿐', fundClass:'risk',
     sup:'지도교수 2인 필수 — 예술실천 1, 컴퓨터과학 1',
     why:'아티스트-리서처 정체성에는 가장 자연스러운 집이고, 지도교수 2인 필수 구조가 미대 루트에 대한 내 반론에 답을 준다. 장애물은 적합도가 아니라 돈이다: 2026/27 학비 연 £20,000, 펀딩은 개별 장학금 경쟁에 맡겨져 있다.',
-    flags:['이중 지도 필수','학비가 발목'] },
+    flags:['이중 지도 필수','학비가 발목'],
+    reads:[
+      {t:'MPhil/PhD Arts & Computational Technology', m:'프로그램 페이지', u:'https://www.gold.ac.uk/pg/mphil-phd-arts-computational-tech/', w:'2인 지도 구조와 학비가 여기 명시. 장학금 파인더 링크도 여기서.'}
+    ] },
   { id:'ual', name:'Creative Computing Institute', place:'University of the Arts London',
     fit:8.5, dual:8, fund:5, fundLabel:'영국 학비 · 일부 스튜던트십', fundClass:'mid',
     sup:'Nick Bryan-Kinns · Terence Broad · Corey Ford',
     why:'Bryan-Kinns는 human-centred AI와 예술을 위한 설명가능 AI를 한다. 네 투명성 결과 — 예술 맥락에서 설명이 아무것도 알려주지 못했다는 발견 — 와 유난히 가깝다. 이 학교가 QMUL 위에 있는 이유가 그다.',
-    flags:['XAI for the Arts'] },
+    flags:['XAI for the Arts'],
+    reads:[
+      {t:'XAIxArts Manifesto: Explainable AI for the Arts', m:'Bryan-Kinns 외 · CHI EA 2025', u:'https://arxiv.org/abs/2502.21220', w:'"기능적 설명 vs 예술적 맥락(정답 없음)"의 구분 — 네 귀무결과를 이 언어로 재서술할 수 있다.'},
+      {t:'Reflections on XAIxArts', m:'ACM interactions · 2024.1–2', u:'https://interactions.acm.org/archive/view/january-february-2024/reflections-on-explainable-ai-for-the-arts-xaixarts', w:'잡지 글이라 가장 읽기 쉽다. 여기서 시작.'},
+      {t:'XAIxArts 워크숍 시리즈', m:'2023 → 2025', u:'https://xaixarts.github.io/2024.html', w:'커뮤니티가 어디 모이는지. 네 결과를 워크숍 페이퍼로 낼 자리이기도 하다.'}
+    ] },
   { id:'se', name:'KTH · Umeå · Malmö', place:'Sweden',
     fit:8, dual:8, fund:10, fundLabel:'급여직 (스웨덴 박사)', fundClass:'good',
     sup:'개별 교수 미확인 — 프로그램 단위 점수',
     why:'soma design, research-through-design, 그리고 깊은 참여디자인 전통이 전부 급여직 위에 있다. 네 방법론의 felt-governance 갈래가 자연스럽게 앉는 자리다. 다만 프로그램 평판만으로 매긴 점수라 <strong>사람을 확인하기 전엔 다른 곳과 나란히 놓고 비교하면 안 된다.</strong>',
-    flags:['지도교수 미확인'] },
+    flags:['지도교수 미확인'],
+    reads:[] },
   { id:'de', name:'HfK Bremen · Bauhaus Weimar', place:'Germany · 예술박사',
     fit:8.5, dual:4, fund:4, fundLabel:'대개 무급 · 학비는 낮음', fundClass:'risk',
     sup:'예술연구 지도. 실증 방법론은 사실상 미지원',
     why:'작품을 만들게는 해주지만 실증 절반을 지도 없이 남겨두는, 좋은 학교들이다. 통계가 네가 가진 것 중 더 희귀한 절반이라는 점에서 비싼 거래다. 설치 자체가 논문의 본체라고 마음을 정할 때에만 재고할 것.',
-    flags:['실증 절반 지도 공백'] }
+    flags:['실증 절반 지도 공백'],
+    reads:[] }
 ];
 
 const list = document.getElementById('list');
@@ -360,6 +451,11 @@ function build(){
         '<p class="sup"><span class="lbl">확인할 컨택</span><span class="n">' + d.sup + '</span></p>' +
         '<div class="chips"><span class="chip ' + d.fundClass + '">' + d.fundLabel + '</span>' +
           d.flags.map(f => '<span class="chip flag">' + f + '</span>').join('') + '</div>' +
+        (d.reads.length
+          ? '<ul class="reads"><span class="lbl">메일 쓰기 전에 읽을 것</span>' +
+            d.reads.map(r => '<li><a href="' + r.u + '" target="_blank" rel="noopener">' + r.t + '</a>' +
+              '<span class="meta">' + r.m + '</span><span class="why">' + r.w + '</span></li>').join('') + '</ul>'
+          : '<ul class="reads"><span class="lbl">읽을 것</span><li>아직 사람 단위로 확인하지 않았다 — 위 "아직 확인 안 된 것" 참고.</li></ul>') +
         '<div class="note"><textarea placeholder="여기에 대한 생각을 적어두세요…" data-id="' + d.id + '"></textarea></div>' +
       '</div>';
     const btn = el.querySelector('.row-btn');
