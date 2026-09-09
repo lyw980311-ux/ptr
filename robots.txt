@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /phd/
+
+Sitemap: https://lyw980311-ux.github.io/ptr/

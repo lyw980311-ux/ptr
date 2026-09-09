@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<title>박사 지원 가중치표</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Noto+Serif+KR:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#F2F5F8; --surface:#FFFFFF; --surface-2:#E9EEF3;
+    --ink:#131A21; --ink-soft:#586674; --ink-faint:#8593A1;
+    --rule:#D8E0E8; --rule-strong:#BCC7D2;
+    --accent:#1D4E89; --accent-soft:#E4EDF7;
+    --good:#17765A; --good-bg:#E2F1EB;
+    --mid:#9A6B14;  --mid-bg:#F6EEDD;
+    --risk:#A33529; --risk-bg:#F7E5E2;
+    --display:'Spectral','Noto Serif KR',Georgia,serif;
+    --body:'IBM Plex Sans','IBM Plex Sans KR',-apple-system,'Apple SD Gothic Neo',sans-serif;
+    --mono:'IBM Plex Mono','IBM Plex Sans KR',ui-monospace,Menlo,monospace;
+    --shadow:0 1px 2px rgba(19,26,33,.05), 0 8px 24px -12px rgba(19,26,33,.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0E141A; --surface:#151C24; --surface-2:#1C242E;
+      --ink:#E3EAF1; --ink-soft:#9DAAB8; --ink-faint:#6E7C8A;
+      --rule:#242F3A; --rule-strong:#33414F;
+      --accent:#78ADE8; --accent-soft:#17283C;
+      --good:#4FBF97; --good-bg:#122A23;
+      --mid:#D6A648;  --mid-bg:#2B2312;
+      --risk:#E0796B; --risk-bg:#2E1815;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0E141A; --surface:#151C24; --surface-2:#1C242E;
+    --ink:#E3EAF1; --ink-soft:#9DAAB8; --ink-faint:#6E7C8A;
+    --rule:#242F3A; --rule-strong:#33414F;
+    --accent:#78ADE8; --accent-soft:#17283C;
+    --good:#4FBF97; --good-bg:#122A23;
+    --mid:#D6A648;  --mid-bg:#2B2312;
+    --risk:#E0796B; --risk-bg:#2E1815;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);
+       line-height:1.75;font-size:16px;margin:0;word-break:keep-all;
+       -webkit-font-smoothing:antialiased;padding:0 20px 96px}
+  .wrap{max-width:940px;margin:0 auto}
+  a{color:var(--accent)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+
+  header{padding:56px 0 28px;border-bottom:1px solid var(--rule)}
+  .kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+          text-transform:uppercase;color:var(--ink-faint);margin:0 0 18px}
+  h1{font-family:var(--display);font-weight:600;font-size:clamp(29px,5vw,44px);
+     line-height:1.25;letter-spacing:-.01em;margin:0 0 18px;text-wrap:balance;max-width:22ch}
+  .thesis{font-size:clamp(16px,2.3vw,18.5px);color:var(--ink-soft);max-width:52ch;margin:0}
+  .thesis b{font-weight:600;color:var(--ink)}
+
+  .panel{background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+         padding:24px 26px 26px;margin:28px 0 40px;box-shadow:var(--shadow)}
+  .panel-head{display:flex;justify-content:space-between;align-items:baseline;
+              gap:16px;flex-wrap:wrap;margin-bottom:20px}
+  .panel-title{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;
+               text-transform:uppercase;color:var(--ink-soft);margin:0}
+  .presets{display:flex;gap:6px;flex-wrap:wrap}
+  .presets button{font-family:var(--body);font-size:13px;font-weight:500;
+    padding:5px 12px;border:1px solid var(--rule-strong);background:transparent;
+    color:var(--ink-soft);border-radius:100px;cursor:pointer;transition:all .15s}
+  .presets button:hover{border-color:var(--accent);color:var(--accent)}
+  .presets button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+  :root[data-theme="dark"] .presets button[aria-pressed="true"]{color:#0E141A}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .presets button[aria-pressed="true"]{color:#0E141A}
+  }
+  .sliders{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:22px}
+  .slider label{display:block;font-size:14.5px;font-weight:600;margin-bottom:3px}
+  .slider .desc{font-size:12.5px;color:var(--ink-faint);margin-bottom:10px;line-height:1.55}
+  .slider .row{display:flex;align-items:center;gap:12px}
+  .slider input[type=range]{flex:1;accent-color:var(--accent);min-width:0}
+  .slider output{font-family:var(--mono);font-size:13px;color:var(--accent);
+                 min-width:3ch;text-align:right;font-variant-numeric:tabular-nums}
+
+  .list-head{display:flex;justify-content:space-between;align-items:baseline;
+             gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  h2{font-family:var(--display);font-weight:600;font-size:23px;margin:0;
+     letter-spacing:-.005em;line-height:1.4}
+  .hint{font-size:13px;color:var(--ink-faint)}
+  #list{display:flex;flex-direction:column;gap:8px}
+  .row-item{background:var(--surface);border:1px solid var(--rule);border-radius:4px;
+            overflow:hidden;will-change:transform}
+  .row-btn{width:100%;display:grid;grid-template-columns:38px 1fr auto;gap:16px;
+           align-items:center;padding:15px 18px;background:none;border:0;
+           text-align:left;cursor:pointer;color:inherit;font:inherit}
+  .row-btn:hover{background:var(--surface-2)}
+  .rank{font-family:var(--mono);font-size:19px;font-weight:500;color:var(--ink-faint);
+        font-variant-numeric:tabular-nums}
+  .row-item[data-top="1"] .rank{color:var(--accent)}
+  .name{display:block;font-size:16px;font-weight:600;line-height:1.4;margin-bottom:2px}
+  .place{display:block;font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);letter-spacing:.04em}
+  .right{display:flex;align-items:center;gap:16px}
+  .bars{display:flex;gap:4px;align-items:flex-end;height:26px}
+  .bar{width:7px;background:var(--rule-strong);border-radius:1px;position:relative}
+  .bar i{position:absolute;bottom:0;left:0;right:0;border-radius:1px;transition:height .3s ease}
+  .bar.f i{background:var(--accent)} .bar.d i{background:var(--ink-soft)} .bar.m i{background:var(--good)}
+  .score{font-family:var(--mono);font-size:17px;font-weight:500;
+         font-variant-numeric:tabular-nums;min-width:4.2ch;text-align:right}
+  .chev{color:var(--ink-faint);transition:transform .2s;font-size:13px}
+  .row-item.open .chev{transform:rotate(90deg)}
+  .detail{display:none;padding:2px 18px 20px 72px;border-top:1px solid var(--rule)}
+  .row-item.open .detail{display:block}
+  .detail p{margin:14px 0 0;font-size:14.5px;color:var(--ink-soft);max-width:56ch}
+  .detail p strong{color:var(--ink);font-weight:600}
+  .sup{margin:14px 0 0;font-size:14px}
+  .sup .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+            text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:5px}
+  .sup span.n{font-weight:500;color:var(--ink)}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+  .chip{font-family:var(--mono);font-size:11px;letter-spacing:.03em;padding:3px 9px;
+        border-radius:100px;white-space:nowrap}
+  .chip.good{background:var(--good-bg);color:var(--good)}
+  .chip.mid{background:var(--mid-bg);color:var(--mid)}
+  .chip.risk{background:var(--risk-bg);color:var(--risk)}
+  .chip.flag{background:var(--accent-soft);color:var(--accent)}
+  .note{margin-top:16px}
+  .note textarea{width:100%;min-height:62px;background:var(--paper);color:var(--ink);
+    border:1px solid var(--rule);border-radius:3px;padding:9px 11px;font:inherit;
+    font-size:14px;resize:vertical;line-height:1.6}
+  .note textarea::placeholder{color:var(--ink-faint)}
+
+  section{margin-top:56px}
+  .lede{font-size:15px;color:var(--ink-soft);max-width:56ch;margin:10px 0 0}
+  ol.corr{list-style:none;counter-reset:c;padding:0;margin:22px 0 0}
+  ol.corr li{counter-increment:c;position:relative;padding:0 0 0 46px;margin-bottom:26px;max-width:60ch}
+  ol.corr li::before{content:counter(c,decimal-leading-zero);position:absolute;left:0;top:3px;
+    font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:500}
+  ol.corr h3{font-size:16px;margin:0 0 6px;font-weight:600;line-height:1.45}
+  ol.corr p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+  .rail{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+        gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;
+        overflow:hidden;margin-top:22px}
+  .stop{background:var(--surface);padding:16px 16px 18px}
+  .stop.now{background:var(--accent-soft)}
+  .stop .when{font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+              color:var(--ink-faint);margin-bottom:7px}
+  .stop.now .when{color:var(--accent);font-weight:500}
+  .stop .what{font-size:14px;line-height:1.6}
+  .todo{margin:20px 0 0;padding:0;list-style:none}
+  .todo li{font-size:14.5px;color:var(--ink-soft);padding:10px 0;border-bottom:1px solid var(--rule)}
+  .todo li::before{content:"○";color:var(--ink-faint);margin-right:11px}
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--rule);
+         font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);line-height:1.9}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+  @media (max-width:600px){
+    .row-btn{grid-template-columns:28px 1fr auto;gap:11px;padding:13px 14px}
+    .bars{display:none}
+    .detail{padding-left:14px}
+  }
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+<header>
+  <p class="kicker">PhD 2027 · shortlist · 2026.09.09 검증</p>
+  <h1>순위는 사실이 아니라 함수다</h1>
+  <p class="thesis">여덟 곳을 세 축으로 채점했다. 어디가 1위인지는 <b>무엇에 무게를 두느냐</b>에
+  전적으로 달려 있다 — 그러니 직접 가중치를 옮겨보고, 순위가 어떻게 흔들리는지 보라.</p>
+</header>
+
+<div class="panel">
+  <div class="panel-head">
+    <p class="panel-title">가중치</p>
+    <div class="presets" id="presets">
+      <button data-p="1,1,1" aria-pressed="true">동일</button>
+      <button data-p="1.5,1,0.5">정체성 우선</button>
+      <button data-p="1,2,1">지도 우선</button>
+      <button data-p="1,1,2">펀딩 우선</button>
+    </div>
+  </div>
+  <div class="sliders">
+    <div class="slider">
+      <label for="w-fit">주제·정체성 적합도</label>
+      <p class="desc">여기서 기계 가독성을 다루는 아티스트-리서처로 있을 수 있는가.</p>
+      <div class="row"><input type="range" id="w-fit" min="0" max="2" step="0.1" value="1"><output for="w-fit">1.0</output></div>
+    </div>
+    <div class="slider">
+      <label for="w-dual">양쪽 다 지도 가능</label>
+      <p class="desc">n=126 통계를 방어해주면서 용접한 벤치도 봐줄 사람이 있는가.</p>
+      <div class="row"><input type="range" id="w-dual" min="0" max="2" step="0.1" value="1"><output for="w-dual">1.0</output></div>
+    </div>
+    <div class="slider">
+      <label for="w-fund">펀딩 현실성</label>
+      <p class="desc">급여직인가, 경쟁 장학금인가, 아니면 연 £20,000 자비인가.</p>
+      <div class="row"><input type="range" id="w-fund" min="0" max="2" step="0.1" value="1"><output for="w-fund">1.0</output></div>
+    </div>
+  </div>
+</div>
+
+<div class="list-head">
+  <h2>현재 가중치 기준 순위</h2>
+  <p class="hint">행을 누르면 근거가 열린다. 메모도 남길 수 있다.</p>
+</div>
+<div id="list"></div>
+
+<section>
+  <h2>이번에 뒤집힌 것 세 가지</h2>
+  <p class="lede">기억이 아니라 기관 페이지를 직접 확인한 결과다. 각각이 한 곳의 위치를 바꾼다.</p>
+  <ol class="corr">
+    <li>
+      <h3>Bryan-Kinns는 QMUL이 아니라 UAL에 있다</h3>
+      <p>현재 UAL Creative Computing Institute의 Creative Computing 교수이고, 지금 하는 연구가
+      <em>eXplainable AI for the Arts</em>다 — 예술 맥락에서의 설명가능성, 즉 네 투명성 귀무결과에
+      정확히 얹힌다. 이전 리스트는 그가 데리고 나간 연구문화를 근거로 QMUL을 6위에 놓고 있었다.</p>
+    </li>
+    <li>
+      <h3>Goldsmiths는 지도 문제를 구조로 해결한다</h3>
+      <p>ACT 프로그램은 <strong>지도교수 2인이 필수다 — 예술실천 1인, 컴퓨터과학 1인.</strong>
+      내가 미대 루트에 제기했던 "실증 절반이 지도 공백이 된다"는 반론에 대한 제도적 답이라,
+      순위를 올렸다. 발목을 잡는 건 적합도가 아니라 돈이다: 2026/27 학비 연 £20,000에,
+      펀딩은 개별 장학금 경쟁뿐이다.</p>
+    </li>
+    <li>
+      <h3>TU Delft가 아예 빠져 있었다</h3>
+      <p>네가 선언한 다음 단계의 앵커인 Kars Alfrink의 <em>Contestable AI by Design</em>이
+      바로 TU Delft 박사논문이고, 지도교수는 Gerd Kortuem · Ianus Keller · Neelke Doorn이다.
+      Alfrink 본인은 현재 그곳 포닥이다. contestability를 방향으로 잡아놓고 그 개념의 제도적
+      본거지를 빠뜨린 것이 이전 리스트의 가장 큰 구멍이었다.</p>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>지금 사이클 상 어디에 있나</h2>
+  <p class="lede">2027 정확한 날짜는 아직 공개되지 않았다. 다만 한 해의 모양은 확실하고,
+  그 모양이 가장 결정적인 일을 앞으로 몇 주 안에 놓는다.</p>
+  <div class="rail">
+    <div class="stop now">
+      <div class="when">2026.09 – 11 · 지금</div>
+      <div class="what">지도교수 컨택. UK DTP는 사전 합의가 사실상 필수다.</div>
+    </div>
+    <div class="stop">
+      <div class="when">12 – 1월</div>
+      <div class="what">영국 대다수 프로그램의 대학 지원서 마감.</div>
+    </div>
+    <div class="stop">
+      <div class="when">2월</div>
+      <div class="what">SGSAH / AHRC 경쟁. 2025년엔 2월 3–14일 창구였다.</div>
+    </div>
+    <div class="stop">
+      <div class="when">상시</div>
+      <div class="what">Delft·북유럽 급여직은 공고제. 알림을 걸어둘 것.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>아직 확인 안 된 것</h2>
+  <p class="lede">사람은 옮겨 다닌다. 위의 모든 이름은 확정이 아니라 단서로 다루고,
+  메일 쓰기 전에 해당 기관 페이지에서 재확인할 것.</p>
+  <ul class="todo">
+    <li>스웨덴 3개교의 개별 교수 — KTH·Umeå·Malmö는 프로그램 평판만으로 매긴 점수다</li>
+    <li>QMUL에 리스트를 유지할 만한 <em>다른</em> 근거 교수가 있는지</li>
+    <li>각 학교가 2027 마감일을 공개하면 갱신</li>
+    <li>DCODE 네트워크가 다음 코호트를 모집하는지</li>
+  </ul>
+</section>
+
+<footer>
+  점수는 Permission to Remain을 함께 만들면서 관찰한 것에 기반한 내 판단이지, 기관 평가가 아니다.<br>
+  출처: designinformatics.org · tudelft.nl/ide · openlab.ncl.ac.uk · researchprofiles.ku.dk ·
+  researchers.arts.ac.uk · gold.ac.uk · sgsah.ac.uk
+</footer>
+</div>
+
+<script>
+const DATA = [
+  { id:'edi', name:'Institute for Design Informatics', place:'University of Edinburgh',
+    fit:9.5, dual:9.5, fund:7, fundLabel:'SGSAH / AHRC DTP', fundClass:'mid',
+    sup:'Ewa Luger · Lachlan Urquhart · Chris Speed · Benjamin Bach',
+    why:'Edinburgh College of Art와 School of Informatics의 <strong>공동 institute</strong>다 — 네게 필요한 이중 지도가 협상 대상이 아니라 구조에 이미 들어 있다. Luger는 AI 윤리와 알고리즘 책임성을, Urquhart는 법·규제와 HCI의 접점을 다루는데 후자가 네 거버넌스 축이 사는 자리다.',
+    flags:['ECA + Informatics 공동'] },
+  { id:'delft', name:'Industrial Design Engineering', place:'TU Delft · Netherlands',
+    fit:9.5, dual:8.5, fund:10, fundLabel:'급여직 · 월 €3k 내외, 학비 0', fundClass:'good',
+    sup:'Gerd Kortuem · Ianus Keller · Neelke Doorn · Kars Alfrink (postdoc)',
+    why:'<em>Contestable AI by Design</em>의 제도적 본거지 — 네 future direction 01이 딛고 선 바로 그 프레임워크다. Alfrink가 포닥으로 있어서 첫 컨택의 마찰이 가장 적다. 가중치를 어떻게 바꿔도 상위에서 잘 버티는데, 한 축을 희생해 다른 축을 얻는 게 아니라 세 축 모두 높기 때문이다.',
+    flags:['contestability의 본거지','포지션 공고제'] },
+  { id:'ncl', name:'Open Lab', place:'Newcastle University',
+    fit:9, dual:9, fund:7.5, fundLabel:'NINE DTP / EPSRC', fundClass:'mid',
+    sup:'Clara Crivellaro · Vasilis Vlachokyriakos · Abigail Durrant · Dave Kirk',
+    why:'Digital Civics는 다른 이름의 participatory legibility다 — 실제 사람들과 함께 실제 제도에 개입하는 것. 배포연구 문화가 강해서, 야생에 놓인 벤치가 "변호해야 할 특이한 선택"이 아니라 방법으로 읽힌다.',
+    flags:['배포연구 문화'] },
+  { id:'ku', name:'Computer Science &amp; Communication', place:'University of Copenhagen',
+    fit:9.5, dual:7.5, fund:10, fundLabel:'급여직 (덴마크 박사)', fundClass:'good',
+    sup:'Irina Shklovski (Professor of Communication and Computing)',
+    why:'Shklovski의 연구 주제가 <strong>대규모 개인정보 수집 앞에서 사람들이 느끼는 무력감</strong>이다 — 네 enacted comprehension을 반대편에서 도달한 셈이다. DCODE 훈련네트워크 공동연구자이기도 하다. 물리적 제작 지도는 상위 세 곳보다 약하지만, 네가 확장하려는 이론 쪽은 더 강하다.',
+    flags:['네 발견과 정면으로 겹침','DCODE 네트워크'] },
+  { id:'gold', name:'Arts &amp; Computational Technology', place:'Goldsmiths, University of London',
+    fit:10, dual:9, fund:3, fundLabel:'연 £20,000 · 장학금 경쟁뿐', fundClass:'risk',
+    sup:'지도교수 2인 필수 — 예술실천 1, 컴퓨터과학 1',
+    why:'아티스트-리서처 정체성에는 가장 자연스러운 집이고, 지도교수 2인 필수 구조가 미대 루트에 대한 내 반론에 답을 준다. 장애물은 적합도가 아니라 돈이다: 2026/27 학비 연 £20,000, 펀딩은 개별 장학금 경쟁에 맡겨져 있다.',
+    flags:['이중 지도 필수','학비가 발목'] },
+  { id:'ual', name:'Creative Computing Institute', place:'University of the Arts London',
+    fit:8.5, dual:8, fund:5, fundLabel:'영국 학비 · 일부 스튜던트십', fundClass:'mid',
+    sup:'Nick Bryan-Kinns · Terence Broad · Corey Ford',
+    why:'Bryan-Kinns는 human-centred AI와 예술을 위한 설명가능 AI를 한다. 네 투명성 결과 — 예술 맥락에서 설명이 아무것도 알려주지 못했다는 발견 — 와 유난히 가깝다. 이 학교가 QMUL 위에 있는 이유가 그다.',
+    flags:['XAI for the Arts'] },
+  { id:'se', name:'KTH · Umeå · Malmö', place:'Sweden',
+    fit:8, dual:8, fund:10, fundLabel:'급여직 (스웨덴 박사)', fundClass:'good',
+    sup:'개별 교수 미확인 — 프로그램 단위 점수',
+    why:'soma design, research-through-design, 그리고 깊은 참여디자인 전통이 전부 급여직 위에 있다. 네 방법론의 felt-governance 갈래가 자연스럽게 앉는 자리다. 다만 프로그램 평판만으로 매긴 점수라 <strong>사람을 확인하기 전엔 다른 곳과 나란히 놓고 비교하면 안 된다.</strong>',
+    flags:['지도교수 미확인'] },
+  { id:'de', name:'HfK Bremen · Bauhaus Weimar', place:'Germany · 예술박사',
+    fit:8.5, dual:4, fund:4, fundLabel:'대개 무급 · 학비는 낮음', fundClass:'risk',
+    sup:'예술연구 지도. 실증 방법론은 사실상 미지원',
+    why:'작품을 만들게는 해주지만 실증 절반을 지도 없이 남겨두는, 좋은 학교들이다. 통계가 네가 가진 것 중 더 희귀한 절반이라는 점에서 비싼 거래다. 설치 자체가 논문의 본체라고 마음을 정할 때에만 재고할 것.',
+    flags:['실증 절반 지도 공백'] }
+];
+
+const list = document.getElementById('list');
+const inputs = { fit:document.getElementById('w-fit'), dual:document.getElementById('w-dual'), fund:document.getElementById('w-fund') };
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function weights(){ return { fit:+inputs.fit.value, dual:+inputs.dual.value, fund:+inputs.fund.value }; }
+function score(d,w){
+  const t = w.fit + w.dual + w.fund;
+  if(!t) return 0;
+  return (d.fit*w.fit + d.dual*w.dual + d.fund*w.fund) / t;
+}
+function loadNote(id){ try { return localStorage.getItem('phdnote:'+id) || ''; } catch(e){ return ''; } }
+function saveNote(id,v){ try { localStorage.setItem('phdnote:'+id, v); } catch(e){} }
+
+function build(){
+  DATA.forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'row-item'; el.id = 'row-' + d.id;
+    el.innerHTML =
+      '<button class="row-btn" aria-expanded="false">' +
+        '<span class="rank"></span>' +
+        '<span><span class="name">' + d.name + '</span>' +
+        '<span class="place">' + d.place + '</span></span>' +
+        '<span class="right">' +
+          '<span class="bars" aria-hidden="true">' +
+            '<span class="bar f"><i style="height:' + (d.fit*10) + '%"></i></span>' +
+            '<span class="bar d"><i style="height:' + (d.dual*10) + '%"></i></span>' +
+            '<span class="bar m"><i style="height:' + (d.fund*10) + '%"></i></span>' +
+          '</span>' +
+          '<span class="score"></span><span class="chev">›</span>' +
+        '</span>' +
+      '</button>' +
+      '<div class="detail">' +
+        '<p>' + d.why + '</p>' +
+        '<p class="sup"><span class="lbl">확인할 컨택</span><span class="n">' + d.sup + '</span></p>' +
+        '<div class="chips"><span class="chip ' + d.fundClass + '">' + d.fundLabel + '</span>' +
+          d.flags.map(f => '<span class="chip flag">' + f + '</span>').join('') + '</div>' +
+        '<div class="note"><textarea placeholder="여기에 대한 생각을 적어두세요…" data-id="' + d.id + '"></textarea></div>' +
+      '</div>';
+    const btn = el.querySelector('.row-btn');
+    btn.addEventListener('click', () => {
+      const open = el.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    const ta = el.querySelector('textarea');
+    ta.value = loadNote(d.id);
+    ta.addEventListener('input', e => saveNote(d.id, e.target.value));
+    list.appendChild(el);
+  });
+}
+
+function render(){
+  const w = weights();
+  const ranked = DATA.map(d => ({ d, s: score(d, w) })).sort((a,b) => b.s - a.s);
+
+  const first = new Map();
+  if(!reduce) DATA.forEach(d => first.set(d.id, document.getElementById('row-'+d.id).getBoundingClientRect().top));
+
+  ranked.forEach((r, i) => {
+    const el = document.getElementById('row-' + r.d.id);
+    el.querySelector('.rank').textContent = String(i+1).padStart(2,'0');
+    el.querySelector('.score').textContent = r.s.toFixed(2);
+    el.dataset.top = i === 0 ? '1' : '0';
+    list.appendChild(el);
+  });
+
+  if(!reduce){
+    ranked.forEach(r => {
+      const el = document.getElementById('row-' + r.d.id);
+      const delta = first.get(r.d.id) - el.getBoundingClientRect().top;
+      if(!delta) return;
+      el.style.transition = 'none';
+      el.style.transform = 'translateY(' + delta + 'px)';
+      requestAnimationFrame(() => {
+        el.style.transition = 'transform .34s cubic-bezier(.2,.7,.3,1)';
+        el.style.transform = '';
+      });
+    });
+  }
+}
+
+Object.entries(inputs).forEach(([k, inp]) => {
+  inp.addEventListener('input', () => {
+    inp.nextElementSibling.textContent = (+inp.value).toFixed(1);
+    document.querySelectorAll('#presets button').forEach(b => b.setAttribute('aria-pressed','false'));
+    render();
+  });
+});
+
+document.querySelectorAll('#presets button').forEach(b => {
+  b.addEventListener('click', () => {
+    const [f,d,m] = b.dataset.p.split(',').map(Number);
+    inputs.fit.value = f; inputs.dual.value = d; inputs.fund.value = m;
+    Object.values(inputs).forEach(i => i.nextElementSibling.textContent = (+i.value).toFixed(1));
+    document.querySelectorAll('#presets button').forEach(x => x.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');
+    render();
+  });
+});
+
+build();
+render();
+</script>
+
+</body>
+</html>
