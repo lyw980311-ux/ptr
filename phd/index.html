@@ -476,25 +476,28 @@ const DATA = [
     reads:[
       {t:'Doctoral Programmes', m:'Bauhaus-Universität Weimar', u:'https://www.uni-weimar.de/en/university/research-and-art/academic-careers/doctorate/doctoral-programmes/', w:'세 학위 구분과 Art&Design 과정 상세.'}
     ] },
-  { id:'qmul', name:'EECS — Cognitive &amp; Creative Computing', place:'Queen Mary University of London',
-    fit:6.5, dual:6, loc:10, prac:5.5, fund:5.5, fundLabel:'스튜던트십 있음 · 국제 경쟁', fundClass:'mid',
-    sup:'Pat Healey (Prof of Human Interaction · CHCC 센터장) · Mathieu Barthet (Digital Media) · Anna Xambó Sedó (participatory music systems) · Simon Colton (Computational Creativity) · Laurissa Tokarchuk (interactive media/UX) · 기술법 쪽 Bindu Chib · Michaela MacDonald',
-    why:'네가 마음에 들어한 곳이라 다시 넣었다 — 다만 정직하게 말하면 <strong>MAT을 매력적으로 만들던 두 사람이 떠났다.</strong> Bryan-Kinns는 UAL CCI로, McPherson은 2023년 Imperial(Dyson School)로. <strong>MAT PhD 프로그램 자체도 폐쇄됐다</strong>("now closed and does not accept applications"). 남은 무게중심은 C4DM의 음악·오디오와 CHCC의 HRI·대화 쪽이라, 얼굴인식·거버넌스·설치를 지도할 사람이 뚜렷하지 않다.<br><br>그래도 <strong>경로는 살아 있다</strong>: EECS 박사과정은 열려 있고(재학 300명+, 매년 스튜던트십), "cognitive and creative computing"이 명시된 연구영역이다. 흥미로운 조합 하나 — <strong>EECS + 기술법(Chib·MacDonald)</strong> 공동지도는 Edinburgh의 Urquhart 모델과 같은 구조를 만들 수 있다. 런던이고 학교 평판도 좋다. <strong>메일 한 통이면 확인된다</strong>: "제 주제를 지도할 분이 EECS에 계신가요?"',
-    flags:['MAT PhD 폐쇄','핵심 2인 이직','EECS 경로는 열림','런던'],
+  { id:'qmul', name:'EECS — C4DM · CHCC', place:'Queen Mary University of London',
+    fit:7, dual:7, loc:10, prac:6.5, fund:4.5, fundLabel:'프로젝트별 스튜던트십 · 국제 일반 펀딩 없음', fundClass:'risk',
+    sup:'<strong>Anna Xambó Sedó</strong> (Senior Lecturer, C4DM · Computational Sonic Arts Lab · <strong>2025.12 박사 공고 = 지금 받는 중</strong>) · Pat Healey (Prof, CHCC 센터장) · Laurissa Tokarchuk (CHCC/Game AI, 물리 인터랙션·윤리연구) · 기술법 공동지도 후보 Bindu Chib · Michaela MacDonald · Computer Vision Group (face analysis)',
+    why:'네가 넣자고 해서 제대로 팠다. <strong>MAT은 종료된 CDT</strong>(EPSRC/AHRC 주기 끝, 페이지 전체가 과거형)이고 qMedia 페이지도 MAT DTC를 "운영 중"이라 적은 낡은 페이지라 진입점으로 못 쓴다. 살아 있는 건 <strong>EECS 박사과정</strong>(재학 300+)이다.<br><br>사람을 찾으니 <strong>Xambó</strong>가 가장 가깝다: HCI·NIME·라이브코딩을 하되 언어가 <em>"참여·비위계·DIY 알고리즘 공간"</em>이고, AHRC PI(<em>Sensing the Forest</em> — IoT·음향생태·창작AI, 네 Play Dead와 닿는다). <strong>2025년 12월에 박사 공고를 냈으니 실제로 받는다.</strong> 다만 음악 도메인이라 거버넌스 축은 <strong>기술법(Chib·MacDonald) 공동지도</strong>로 채워야 한다 — Edinburgh의 Urquhart 모델과 같은 구조.<br><br><strong>펀딩이 약점이다.</strong> EECS 스튜던트십은 프로젝트별로 개별 공고되고(지금 뜬 건 AI·6G·전력), 국제학생 일반 스튜던트십은 없다. 페이지가 안내하는 국제 루트는 CSC·Commonwealth·국가장학(한국은 목록에 없음)·자비. → 지도교수가 <em>공고를 내주거나</em>, <strong>한국 해외유학 장학금</strong>을 따로 잡아야 한다.',
+    flags:['Xambó 박사 받는 중','MAT 종료','기술법 공동지도 가능','펀딩 = 외부장학 필요'],
     reads:[
-      {t:'EECS PhD — 프로그램', m:'QMUL', u:'https://www.qmul.ac.uk/eecs/phd/', w:'재학 300명+·스튜던트십. MAT 말고 이쪽이 실제 경로.'},
-      {t:'Centre for Human-Centred Computing — 교수진', m:'QMUL', u:'https://www.seresearch.qmul.ac.uk/chcc/people/academics/', w:'Healey가 센터장. HRI·대화 중심인지 직접 보고 판단.'},
-      {t:'MAT — 프로젝트 아카이브', m:'mat.qmul.ac.uk', u:'https://mat.qmul.ac.uk/projects/', w:'프로그램은 닫혔지만 어떤 작업이 나왔는지는 여기. 네가 원한 연구문화의 증거.'}
+      {t:'Anna Xambó — PhD Opportunity (2025.12 공고)', m:'annaxambo.me', u:'https://annaxambo.me/blog/announcements/2025/12/22/open-call-phd-opportunity-underrepresented-group-studentship/', w:'실제 공고문. 자격(underrepresented group studentship = home fee일 가능성)·주제·방식을 여기서 확인.'},
+      {t:'Computational Sonic Arts Lab', m:'C4DM', u:'https://compsonicartslab.github.io/', w:'Xambó 랩. 어떤 사람들이 뭘 하는지.'},
+      {t:'Anna Xambó — EECS 프로필', m:'QMUL', u:'https://www.qmul.ac.uk/eecs/people/profiles/annaxambosedo.html', w:'"participation, non-hierarchical structures, DIY" — 컨택 메일의 언어.'},
+      {t:'EECS PhD — Fees & Funding', m:'QMUL', u:'https://www.qmul.ac.uk/eecs/phd/fees-and-funding/', w:'국제 루트 목록. 한국 국가장학은 없음 → 외부에서 잡아야.'},
+      {t:'EECS PhD — 프로그램', m:'QMUL', u:'https://www.qmul.ac.uk/eecs/phd/', w:'MAT 말고 이쪽. 재학 300+.'}
     ] },
   { id:'imperial', name:'Dyson School — Augmented Instruments Lab', place:'Imperial College London',
-    fit:6, dual:7.5, loc:10, prac:8, fund:6, fundLabel:'Imperial 장학금 · 국제 경쟁 (미확인)', fundClass:'mid',
+    fit:6, dual:7.5, loc:10, prac:8, fund:7.5, fundLabel:"President's PhD · 국제 가능 · £27,036 · 매우 경쟁", fundClass:'mid',
     sup:'<strong>Andrew McPherson</strong> (Chair in Design Engineering and Music · 2023년 QMUL C4DM에서 이적) · Francisco Bernardo (포닥) · 박사과정 디렉터 Mazdak Ghajari',
-    why:'네가 QMUL에서 좋아했던 그 연구문화가 <strong>실제로는 여기로 옮겨왔다.</strong> McPherson이 2023년 Imperial로 가면서 Augmented Instruments Lab을 가져갔고, 랩은 Dyson School과 QMUL C4DM 양쪽에 걸쳐 있다. <strong>현재 박사생 11명, 매년 신입을 받는다</strong>(2019–2025 연속) — 리스트에서 활동이 가장 확실히 확인되는 랩이다. 랩 사이트에 <em>Practice</em> 섹션이 따로 있을 만큼 실기가 본체다.<br><br>정직한 한계: 주제가 <strong>악기·음악·하드웨어</strong>다. 네 <em>제작·체현·실증</em> 축은 거의 완벽히 겹치지만 <em>거버넌스·얼굴인식</em> 축은 겹치지 않는다. 벤치를 "악기"로 번역할 수 있다면 길이 있고, 아니면 공동지도가 필요하다. 펀딩(국제학생 조건·마감)은 아직 확인 못 했다.',
-    flags:['박사생 11명 활동 중','매년 신입','McPherson','악기·음악 중심','펀딩 미확인'],
+    why:'네가 QMUL에서 좋아했던 그 연구문화가 <strong>실제로는 여기로 옮겨왔다.</strong> McPherson이 2023년 Imperial로 가면서 Augmented Instruments Lab을 가져갔고, 랩은 Dyson School과 QMUL C4DM 양쪽에 걸쳐 있다. <strong>현재 박사생 11명, 매년 신입</strong>(2019–2025 연속) — 리스트에서 활동이 가장 확실히 확인되는 랩이다. 랩 사이트에 <em>Practice</em> 섹션이 따로 있을 만큼 실기가 본체다.<br><br><strong>펀딩 확인됐다:</strong> President\'s PhD Scholarships — <strong>국적 제한 없음</strong>, 학비 전액 + 연 £27,036 + 연구비 £2k/년, 3.5년. 단 Imperial 전체에 50자리라 매우 경쟁이고, 지도교수 지지가 필요하다. <strong>마감 3회: 2026.11.2 · 2027.1.11 · 2027.3.1.</strong> 첫 마감이 7주 뒤라 McPherson 컨택이 급하다.<br><br>정직한 한계: 주제가 <strong>악기·음악·하드웨어</strong>다. 네 <em>제작·체현·실증</em> 축은 거의 완벽히 겹치지만 <em>거버넌스·얼굴인식</em> 축은 겹치지 않는다. 벤치를 "악기"로 번역할 수 있다면 길이 있고, 아니면 공동지도가 필요하다.',
+    flags:['박사생 11명 활동 중','매년 신입',"President's PhD 국제 가능",'첫 마감 11/2','악기·음악 중심'],
     reads:[
+      {t:"President's PhD Scholarships", m:'Imperial · 공식', u:'https://www.imperial.ac.uk/study/fees-and-funding/postgraduate-doctoral/grants-scholarships/presidents-phd/', w:'국제 가능·£27,036·마감 11/2, 1/11, 3/1. 수치는 공식 페이지에서 재확인.'},
       {t:'Augmented Instruments Lab — People', m:'Imperial + QMUL C4DM', u:'https://instrumentslab.org/people/', w:'박사생 11명·매년 신입. 이 랩이 살아 있다는 직접 증거.'},
       {t:'Andrew McPherson — 프로젝트', m:'andrewmcpherson.org', u:'https://andrewmcpherson.org/', w:'그가 만드는 것. 네 벤치와 방법이 겹치는지 눈으로 확인.'},
-      {t:'PhD in Design Engineering', m:'Dyson School · Imperial', u:'https://www.imperial.ac.uk/design-engineering/study/phd/', w:'지원 경로·펀딩. 박사과정 디렉터 Mazdak Ghajari.'}
+      {t:'PhD in Design Engineering', m:'Dyson School · Imperial', u:'https://www.imperial.ac.uk/design-engineering/study/phd/', w:'지원 경로. 박사과정 디렉터 Mazdak Ghajari.'}
     ] }
 ];
 
