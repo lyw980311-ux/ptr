@@ -19,7 +19,7 @@
     --accent:#1D4E89; --accent-soft:#E4EDF7;
     --good:#17765A; --good-bg:#E2F1EB;
     --mid:#9A6B14;  --mid-bg:#F6EEDD;
-    --risk:#A33529; --risk-bg:#F7E5E2;
+    --risk:#A33529; --risk-bg:#F7E5E2; --prac:#6B4FA8;
     --display:'Spectral','Noto Serif KR',Georgia,serif;
     --body:'IBM Plex Sans','IBM Plex Sans KR',-apple-system,'Apple SD Gothic Neo',sans-serif;
     --mono:'IBM Plex Mono','IBM Plex Sans KR',ui-monospace,Menlo,monospace;
@@ -33,7 +33,7 @@
       --accent:#78ADE8; --accent-soft:#17283C;
       --good:#4FBF97; --good-bg:#122A23;
       --mid:#D6A648;  --mid-bg:#2B2312;
-      --risk:#E0796B; --risk-bg:#2E1815;
+      --risk:#E0796B; --risk-bg:#2E1815; --prac:#A58BE0;
       --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
     }
   }
@@ -44,7 +44,7 @@
     --accent:#78ADE8; --accent-soft:#17283C;
     --good:#4FBF97; --good-bg:#122A23;
     --mid:#D6A648;  --mid-bg:#2B2312;
-    --risk:#E0796B; --risk-bg:#2E1815;
+    --risk:#E0796B; --risk-bg:#2E1815; --prac:#A58BE0;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
   }
   *{box-sizing:border-box}
@@ -108,7 +108,7 @@
   .bars{display:flex;gap:4px;align-items:flex-end;height:26px}
   .bar{width:7px;background:var(--rule-strong);border-radius:1px;position:relative}
   .bar i{position:absolute;bottom:0;left:0;right:0;border-radius:1px;transition:height .3s ease}
-  .bar.f i{background:var(--accent)} .bar.d i{background:var(--ink-soft)} .bar.l i{background:var(--mid)} .bar.m i{background:var(--good)}
+  .bar.f i{background:var(--accent)} .bar.d i{background:var(--ink-soft)} .bar.l i{background:var(--mid)} .bar.p i{background:var(--prac)} .bar.m i{background:var(--good)}
   .score{font-family:var(--mono);font-size:17px;font-weight:500;
          font-variant-numeric:tabular-nums;min-width:4.2ch;text-align:right}
   .chev{color:var(--ink-faint);transition:transform .2s;font-size:13px}
@@ -190,7 +190,7 @@
 <header>
   <p class="kicker">PhD 2027 · shortlist · 2026.09.15 갱신 · 지도교수 전원 확인</p>
   <h1>순위는 사실이 아니라 함수다</h1>
-  <p class="thesis">열두 곳을 네 축으로 채점했다. 어디가 1위인지는 <b>무엇에 무게를 두느냐</b>에
+  <p class="thesis">열세 곳을 다섯 축으로 채점했다. 어디가 1위인지는 <b>무엇에 무게를 두느냐</b>에
   전적으로 달려 있다 — 그러니 직접 가중치를 옮겨보고, 순위가 어떻게 흔들리는지 보라.</p>
 </header>
 
@@ -198,11 +198,11 @@
   <div class="panel-head">
     <p class="panel-title">가중치</p>
     <div class="presets" id="presets">
-      <button data-p="1,1,1,1" aria-pressed="true">동일</button>
-      <button data-p="1,1,2.5,1">런던 우선</button>
-      <button data-p="1.5,1,1,0.5">정체성 우선</button>
-      <button data-p="1,2,1,1">지도 우선</button>
-      <button data-p="1,1,0.5,2">펀딩 우선</button>
+      <button data-p="1,1,1,1,1" aria-pressed="true">동일</button>
+      <button data-p="1,1,2.5,1,1">런던 우선</button>
+      <button data-p="1,1,1,2.5,1">실기 우선</button>
+      <button data-p="1,2,1,1,1">지도 우선</button>
+      <button data-p="1,1,0.5,1,2">펀딩 우선</button>
     </div>
   </div>
   <div class="sliders">
@@ -220,6 +220,11 @@
       <label for="w-loc">런던 가산점</label>
       <p class="desc">이미 런던에 있다. 이사·비자·네트워크를 새로 만들 필요가 없는가.</p>
       <div class="row"><input type="range" id="w-loc" min="0" max="2" step="0.1" value="1"><output for="w-loc">1.0</output></div>
+    </div>
+    <div class="slider">
+      <label for="w-prac">실기 기반 (practice-based)</label>
+      <p class="desc">만든 것 자체가 박사의 본체로 인정되는가, 아니면 글의 보조 자료인가.</p>
+      <div class="row"><input type="range" id="w-prac" min="0" max="2" step="0.1" value="1"><output for="w-prac">1.0</output></div>
     </div>
     <div class="slider">
       <label for="w-fund">펀딩 현실성</label>
@@ -362,7 +367,7 @@
 <script>
 const DATA = [
   { id:'adapt', name:'ADAPT-AI — Digital Sovereignty', place:"King's College London · AHRC Doctoral Focal Award",
-    fit:8.5, dual:8, loc:10, fund:9.5, fundLabel:'완전펀딩 · 학비 + 연 £22,780 · 국제학생 30%', fundClass:'good',
+    fit:8.5, dual:8, loc:10, prac:8, fund:9.5, fundLabel:'완전펀딩 · 학비 + 연 £22,780 · 국제학생 30%', fundClass:'good',
     sup:'지도교수는 프로젝트에 배정됨 — 컨택 불필요 · 공동지도 2–3인 · Sarah Atkinson(디렉터) · Mercedes Bunz(KCL DH) · Serpentine Arts Tech(Victoria Ivanova)',
     why:'내가 두 번 잘못 놓았던 곳. 정보세션 PDF를 읽고 나서야 보였다: 산업 챌린지 목록에 <strong>"Digital Sovereignty – Ethical Data Infrastructure for Cultural Organisations"</strong>(KCL 호스트 · Serpentine + National Gallery)가 있고, 지원폼에서 그걸 직접 고른다. 네 extractive legibility → participatory legibility가 <em>챌린지 이름</em>으로 박혀 있는 유일한 곳. <strong>2027/28 코호트 10명 확정</strong>, 국제학생 완전펀딩, 지도교수 사냥 없음. 2027 시작만 놓고 보면 가장 <em>실행 가능한</em> 경로다. 약점은 셋: 국제 30% = 약 3자리라 경쟁이 세고, 프로그램 DNA가 "관객"이라 인천·벤치를 <em>문화기관의 데이터 인프라</em> 언어로 번역해야 하며, Open Lab만큼의 배포연구 문화는 아니다.',
     flags:['2027 코호트 10명 확정','지도교수 배정제','Digital Sovereignty 챌린지','마감 ~2027.2 (예상)','Edinburgh와 병행'],
@@ -374,7 +379,7 @@ const DATA = [
       {t:'2026/27 CDA "Beyond Engagement" (마감 · 구조 참고)', m:'Serpentine CDA', u:'https://adapt-ai.ac.uk/2026-27-beyond-engagement-measuring-creative-rd-audience-impact-and-innovation-in-art-and-technology/', w:'CDA 경로의 방법이 민족지·인터뷰·공동설계라는 걸 확인 — 네 제작·통계엔 Industry Challenge가 맞다.'}
     ] },
   { id:'edi', name:'Institute for Design Informatics', place:'University of Edinburgh',
-    fit:9.5, dual:9.5, loc:6, fund:7, fundLabel:'SGSAH / AHRC DTP', fundClass:'mid',
+    fit:9.5, dual:9.5, loc:6, prac:7.5, fund:7, fundLabel:'SGSAH / AHRC DTP', fundClass:'mid',
     sup:'Ewa Luger · Lachlan Urquhart · Chris Speed · Benjamin Bach',
     why:'Edinburgh College of Art와 School of Informatics의 <strong>공동 institute</strong>다 — 네게 필요한 이중 지도가 협상 대상이 아니라 구조에 이미 들어 있다. Luger는 <strong>비전문가에게 AI가 어떻게 "이해 가능"해지는가</strong>와 권력 분배·디지털 배제를 다루고, Urquhart는 지금 <strong>얼굴인식 거버넌스를 공동설계하는 프로젝트(Face[REC])</strong>를 돌리고 있다. 둘 다 네 작업의 정중앙이다.',
     flags:['ECA + Informatics 공동','Face[REC] 진행 중','DCODE'],
@@ -386,7 +391,7 @@ const DATA = [
       {t:'Design Informatics PhD — 지원 안내', m:'프로그램 페이지', u:'https://designinformatics.org/study/design-informatics-phd/', w:'지도교수 사전 컨택을 명시적으로 권장한다.'}
     ] },
   { id:'delft', name:'Industrial Design Engineering', place:'TU Delft · Netherlands',
-    fit:9.5, dual:8.5, loc:4, fund:10, fundLabel:'급여직 · 월 €3k 내외, 학비 0', fundClass:'good',
+    fit:9.5, dual:8.5, loc:4, prac:7, fund:10, fundLabel:'급여직 · 월 €3k 내외, 학비 0', fundClass:'good',
     sup:'Gerd Kortuem · Ianus Keller · Neelke Doorn · Kars Alfrink (postdoc)',
     why:'<em>Contestable AI by Design</em>의 제도적 본거지 — 네 future direction 01이 딛고 선 바로 그 프레임워크다. Alfrink가 포닥으로 있어서 첫 컨택의 마찰이 가장 적다. 가중치를 어떻게 바꿔도 상위에서 잘 버티는데, 한 축을 희생해 다른 축을 얻는 게 아니라 세 축 모두 높기 때문이다.',
     flags:['contestability의 본거지','포지션 공고제'],
@@ -396,7 +401,7 @@ const DATA = [
       {t:'Kars Alfrink — 현재 작업 "People’s Compute"', m:'TU Delft 프로필', u:'https://www.tudelft.nl/en/ide/about-ide/people/alfrink-cp', w:'그가 지금 어디로 가고 있는지. 컨택 메일은 여기에 맞춰야 한다.'}
     ] },
   { id:'ncl', name:'Open Lab', place:'Newcastle University',
-    fit:9, dual:9, loc:6, fund:7.5, fundLabel:'NINE DTP / EPSRC', fundClass:'mid',
+    fit:9, dual:9, loc:6, prac:6.5, fund:7.5, fundLabel:'NINE DTP / EPSRC', fundClass:'mid',
     sup:'Clara Crivellaro · Vasilis Vlachokyriakos · Abigail Durrant · Dave Kirk',
     why:'Digital Civics는 다른 이름의 participatory legibility다 — 실제 사람들과 함께 실제 제도에 개입하는 것. 배포연구 문화가 강해서, 야생에 놓인 벤치가 "변호해야 할 특이한 선택"이 아니라 방법으로 읽힌다.',
     flags:['배포연구 문화'],
@@ -405,7 +410,7 @@ const DATA = [
       {t:'Vasilis Vlachokyriakos — 프로필', m:'Open Lab', u:'https://openlab.ncl.ac.uk/people/vasilis-vlachokyriakos', w:'최근 프로젝트가 네 "제도에 이의제기"와 맞는지 확인.'}
     ] },
   { id:'ku', name:'Computer Science &amp; Communication', place:'University of Copenhagen',
-    fit:9.5, dual:7.5, loc:4, fund:10, fundLabel:'급여직 (덴마크 박사)', fundClass:'good',
+    fit:9.5, dual:7.5, loc:4, prac:4.5, fund:10, fundLabel:'급여직 (덴마크 박사)', fundClass:'good',
     sup:'Irina Shklovski (Professor of Communication and Computing)',
     why:'Shklovski의 연구 주제가 <strong>대규모 개인정보 수집 앞에서 사람들이 느끼는 무력감</strong>이다 — 네 enacted comprehension을 반대편에서 도달한 셈이다. DCODE 훈련네트워크 공동연구자이기도 하다. 물리적 제작 지도는 상위 세 곳보다 약하지만, 네가 확장하려는 이론 쪽은 더 강하다.',
     flags:['네 발견과 정면으로 겹침','DCODE'],
@@ -415,7 +420,7 @@ const DATA = [
       {t:'Impossible Futures Lab', m:'그의 연구실', u:'https://impossiblefutureslab.dk/people/irina-shklovski/', w:'연구실 톤과 현재 사람들. 메일은 연구실 방향에 맞춰서.'}
     ] },
   { id:'gold', name:'Arts &amp; Computational Technology', place:'Goldsmiths, University of London',
-    fit:10, dual:9, loc:10, fund:3, fundLabel:'연 £21,000 · 장학금 경쟁뿐', fundClass:'risk',
+    fit:10, dual:9, loc:10, prac:10, fund:3, fundLabel:'연 £21,000 · 장학금 경쟁뿐', fundClass:'risk',
     sup:'지도교수 2인 필수 — 예술실천 1, 컴퓨터과학 1',
     why:'아티스트-리서처 정체성에는 가장 자연스러운 집이고, 지도교수 2인 필수 구조가 미대 루트에 대한 내 반론에 답을 준다. 장애물은 적합도가 아니라 돈이다: 2026/27 학비 연 £21,000, 펀딩은 개별 장학금 경쟁에 맡겨져 있다.',
     flags:['이중 지도 필수','학비가 발목'],
@@ -423,7 +428,7 @@ const DATA = [
       {t:'MPhil/PhD Arts & Computational Technology', m:'프로그램 페이지', u:'https://www.gold.ac.uk/pg/mphil-phd-arts-computational-tech/', w:'2인 지도 구조와 학비가 여기 명시. 장학금 파인더 링크도 여기서.'}
     ] },
   { id:'ual', name:'Creative Computing Institute', place:'University of the Arts London',
-    fit:8.5, dual:8, loc:10, fund:5, fundLabel:'영국 학비 · 일부 스튜던트십', fundClass:'mid',
+    fit:8.5, dual:8, loc:10, prac:8.5, fund:5, fundLabel:'영국 학비 · 일부 스튜던트십', fundClass:'mid',
     sup:'Nick Bryan-Kinns · Terence Broad · Corey Ford',
     why:'Bryan-Kinns는 human-centred AI와 예술을 위한 설명가능 AI를 한다. 네 투명성 결과 — 예술 맥락에서 설명이 아무것도 알려주지 못했다는 발견 — 와 유난히 가깝다. 이 학교가 QMUL 위에 있는 이유가 그다.',
     flags:['XAI for the Arts'],
@@ -433,7 +438,7 @@ const DATA = [
       {t:'XAIxArts 워크숍 시리즈', m:'2023 → 2025', u:'https://xaixarts.github.io/2024.html', w:'커뮤니티가 어디 모이는지. 네 결과를 워크숍 페이퍼로 낼 자리이기도 하다.'}
     ] },
   { id:'se', name:'KTH · Umeå · Malmö', place:'Sweden',
-    fit:8.5, dual:8.5, loc:4, fund:10, fundLabel:'급여직 (스웨덴 박사)', fundClass:'good',
+    fit:8.5, dual:8.5, loc:4, prac:7.5, fund:10, fundLabel:'급여직 (스웨덴 박사)', fundClass:'good',
     sup:'KTH MID — Kristina Höök (Professor of Interaction Design, soma design) · Umeå UID — Heather Wiltse (Associate Prof · 연구환경 코디네이터) · Danielle Wilde · Pamela Gil-Salas (디지털 거버넌스·기술윤리) · Malmö K3 — 박사과정 문의 Magnus Andersson',
     why:'이번에 사람을 채웠다. <strong>Höök</strong>은 soma design을 만든 사람이고 2026년에도 그 계보의 논문을 쓰고 있다 — 네 "felt governance" 방법론 축이 여기 앉는다. <strong>Wiltse</strong>는 <em>Changing Things</em>의 공저자로 <em>사물이 우리를 어떻게 읽는지</em>를 다루고, Umeå의 Gil-Salas는 "Big Tech의 식민적 유산"과 디지털 권력을 연구해 네 governance 축과 직접 겹친다. Malmö K3는 참여디자인 전통이 깊고 <strong>지도교수 2인이 필수</strong>다. 세 곳 다 급여직 4년(교육 20% 포함 시 보통 5년).',
     flags:['급여직 4년','soma design 본산','지도 2인(Malmö)'],
@@ -445,7 +450,7 @@ const DATA = [
       {t:'Design 박사과정 (K3)', m:'Malmö University', u:'https://mau.se/en/research/research-subjects/design/', w:'문의 Magnus Andersson. 공동설계·참여디자인 중심.'}
     ] },
   { id:'bremen', name:'HfK Bremen — Binational Artistic PhD', place:'Germany · Digital Media / Integrated Design',
-    fit:8.5, dual:5, loc:2, fund:4.5, fundLabel:'대개 무급 · 학비 낮음', fundClass:'risk',
+    fit:8.5, dual:5, loc:2, prac:10, fund:4.5, fundLabel:'대개 무급 · 학비 낮음', fundClass:'risk',
     sup:'Andrea Sick (Professor of Media & Cultural History · 프로그램 총괄) · <strong>Ralf Baecker</strong> · Dennis Paul · Tanja Diezmann · Asli Serbest · Mona Schieren',
     why:'사람을 채우고 나니 독일 셋 중 가장 올라간다. <strong>Ralf Baecker</strong>가 여기 교수다 — 알고리즘과 기계를 물리적 설치로 만드는 작가라 네 벤치와 계보가 거의 정확히 겹친다. HfK는 2020년부터 Fine Arts와 Design(Integrated Design·Digital Media)에서 <em>독자적으로</em> PhD in Arts를 수여할 수 있고, 4년 <strong>binational 프로그램</strong>(Leiden · Groningen · Gothenburg 공동)으로 운영된다. Sick이 그걸 이끈다. 다만 실증 방법론 지도는 여전히 없고 독일 예술박사는 대개 무급이다.',
     flags:['Ralf Baecker','4년 binational','Leiden/Groningen/Gothenburg'],
@@ -456,7 +461,7 @@ const DATA = [
       {t:'Lecturers in Digital Media', m:'HfK Bremen', u:'https://www.hfk-bremen.de/en/person/lecturers-digital-media', w:'Baecker 포함 — 작업 보고 컨택 여부 결정.'}
     ] },
   { id:'hfbk', name:'HFBK Hamburg — PhD in Art Practice', place:'Germany · 예술박사',
-    fit:8, dual:4, loc:2, fund:4, fundLabel:'학비·펀딩 정보 없음', fundClass:'risk',
+    fit:8, dual:4, loc:2, prac:10, fund:4, fundLabel:'학비·펀딩 정보 없음', fundClass:'risk',
     sup:'박사위원회 5인 — Kader Attia · Angela Bulloch · <strong>Simon Denny</strong> · Bettina Uppenkamp · Sophie Witt · 대리 4인(Omer Fast · Rajkamal Kahlon · Adina Pintilie · Konrad Renner) · 문의 Sara Hillnhütter',
     why:'박사위원회에 <strong>Simon Denny</strong>가 있다 — 데이터 소유권·기술 인프라·플랫폼 권력을 전시로 다루는 작가라, 네 주제를 미술 쪽 언어로 이해할 사람이다. 3년, 예술작업이 본체이고 11 SWS 코스워크가 붙는다. 7개 학과 중 <em>Time-based Media</em> 또는 <em>Design</em> 소속. <strong>지원이 2026년 9월 1일 열렸다 — 지금 열려 있는 유일한 곳.</strong> 실증 절반은 여전히 지도 공백이고 독일어+영어가 필요하다.',
     flags:['Simon Denny','지금 열림 (9/1~)','독일어+영어'],
@@ -464,7 +469,7 @@ const DATA = [
       {t:'PhD in Art Practice', m:'HFBK Hamburg', u:'https://hfbk-hamburg.de/en/study/study-programs/phd-in-art-practice/', w:'구조·위원회·지원. 문의 Sara Hillnhütter (Officer for Artistic Research).'}
     ] },
   { id:'weimar', name:'Bauhaus Weimar — Dr. phil. in Art and Design', place:'Germany · 예술박사',
-    fit:8, dual:4.5, loc:2, fund:4, fundLabel:'Art&Design은 자비/외부장학', fundClass:'risk',
+    fit:8, dual:4.5, loc:2, prac:9, fund:4, fundLabel:'Art&Design은 자비/외부장학', fundClass:'risk',
     sup:'Promotionsstudiengang Kunst und Design · 구조화 과정이라 복수 교수 공동지도 · 개별 교수는 Fakultät Kunst und Gestaltung 페이지에서 확인 필요',
     why:'세 학위 중 네게 맞는 건 <strong>Dr. phil. in Art and Design</strong> — 학술과 예술 작업을 결합하는 형태다. 3년 구조화 과정이고 <strong>마감 3월 31일</strong>(겨울학기), <strong>독일어와 영어 둘 다</strong> 요구한다. DFG 연구훈련그룹(펀딩 딸린 자리)은 건축·미디어 쪽에 있고 Art&Design엔 없어서 사실상 자비이거나 외부 장학금이다. 구조화 과정이라 복수 교수 공동지도가 기본인 건 장점.',
     flags:['마감 3/31','독일어+영어','복수 교수 공동지도'],
@@ -472,7 +477,7 @@ const DATA = [
       {t:'Doctoral Programmes', m:'Bauhaus-Universität Weimar', u:'https://www.uni-weimar.de/en/university/research-and-art/academic-careers/doctorate/doctoral-programmes/', w:'세 학위 구분과 Art&Design 과정 상세.'}
     ] },
   { id:'qmul', name:'EECS — Cognitive &amp; Creative Computing', place:'Queen Mary University of London',
-    fit:6.5, dual:6, loc:10, fund:5.5, fundLabel:'스튜던트십 있음 · 국제 경쟁', fundClass:'mid',
+    fit:6.5, dual:6, loc:10, prac:5.5, fund:5.5, fundLabel:'스튜던트십 있음 · 국제 경쟁', fundClass:'mid',
     sup:'Pat Healey (Prof of Human Interaction · CHCC 센터장) · Mathieu Barthet (Digital Media) · Anna Xambó Sedó (participatory music systems) · Simon Colton (Computational Creativity) · Laurissa Tokarchuk (interactive media/UX) · 기술법 쪽 Bindu Chib · Michaela MacDonald',
     why:'네가 마음에 들어한 곳이라 다시 넣었다 — 다만 정직하게 말하면 <strong>MAT을 매력적으로 만들던 두 사람이 떠났다.</strong> Bryan-Kinns는 UAL CCI로, McPherson은 2023년 Imperial(Dyson School)로. <strong>MAT PhD 프로그램 자체도 폐쇄됐다</strong>("now closed and does not accept applications"). 남은 무게중심은 C4DM의 음악·오디오와 CHCC의 HRI·대화 쪽이라, 얼굴인식·거버넌스·설치를 지도할 사람이 뚜렷하지 않다.<br><br>그래도 <strong>경로는 살아 있다</strong>: EECS 박사과정은 열려 있고(재학 300명+, 매년 스튜던트십), "cognitive and creative computing"이 명시된 연구영역이다. 흥미로운 조합 하나 — <strong>EECS + 기술법(Chib·MacDonald)</strong> 공동지도는 Edinburgh의 Urquhart 모델과 같은 구조를 만들 수 있다. 런던이고 학교 평판도 좋다. <strong>메일 한 통이면 확인된다</strong>: "제 주제를 지도할 분이 EECS에 계신가요?"',
     flags:['MAT PhD 폐쇄','핵심 2인 이직','EECS 경로는 열림','런던'],
@@ -480,18 +485,28 @@ const DATA = [
       {t:'EECS PhD — 프로그램', m:'QMUL', u:'https://www.qmul.ac.uk/eecs/phd/', w:'재학 300명+·스튜던트십. MAT 말고 이쪽이 실제 경로.'},
       {t:'Centre for Human-Centred Computing — 교수진', m:'QMUL', u:'https://www.seresearch.qmul.ac.uk/chcc/people/academics/', w:'Healey가 센터장. HRI·대화 중심인지 직접 보고 판단.'},
       {t:'MAT — 프로젝트 아카이브', m:'mat.qmul.ac.uk', u:'https://mat.qmul.ac.uk/projects/', w:'프로그램은 닫혔지만 어떤 작업이 나왔는지는 여기. 네가 원한 연구문화의 증거.'}
+    ] },
+  { id:'imperial', name:'Dyson School — Augmented Instruments Lab', place:'Imperial College London',
+    fit:6, dual:7.5, loc:10, prac:8, fund:6, fundLabel:'Imperial 장학금 · 국제 경쟁 (미확인)', fundClass:'mid',
+    sup:'<strong>Andrew McPherson</strong> (Chair in Design Engineering and Music · 2023년 QMUL C4DM에서 이적) · Francisco Bernardo (포닥) · 박사과정 디렉터 Mazdak Ghajari',
+    why:'네가 QMUL에서 좋아했던 그 연구문화가 <strong>실제로는 여기로 옮겨왔다.</strong> McPherson이 2023년 Imperial로 가면서 Augmented Instruments Lab을 가져갔고, 랩은 Dyson School과 QMUL C4DM 양쪽에 걸쳐 있다. <strong>현재 박사생 11명, 매년 신입을 받는다</strong>(2019–2025 연속) — 리스트에서 활동이 가장 확실히 확인되는 랩이다. 랩 사이트에 <em>Practice</em> 섹션이 따로 있을 만큼 실기가 본체다.<br><br>정직한 한계: 주제가 <strong>악기·음악·하드웨어</strong>다. 네 <em>제작·체현·실증</em> 축은 거의 완벽히 겹치지만 <em>거버넌스·얼굴인식</em> 축은 겹치지 않는다. 벤치를 "악기"로 번역할 수 있다면 길이 있고, 아니면 공동지도가 필요하다. 펀딩(국제학생 조건·마감)은 아직 확인 못 했다.',
+    flags:['박사생 11명 활동 중','매년 신입','McPherson','악기·음악 중심','펀딩 미확인'],
+    reads:[
+      {t:'Augmented Instruments Lab — People', m:'Imperial + QMUL C4DM', u:'https://instrumentslab.org/people/', w:'박사생 11명·매년 신입. 이 랩이 살아 있다는 직접 증거.'},
+      {t:'Andrew McPherson — 프로젝트', m:'andrewmcpherson.org', u:'https://andrewmcpherson.org/', w:'그가 만드는 것. 네 벤치와 방법이 겹치는지 눈으로 확인.'},
+      {t:'PhD in Design Engineering', m:'Dyson School · Imperial', u:'https://www.imperial.ac.uk/design-engineering/study/phd/', w:'지원 경로·펀딩. 박사과정 디렉터 Mazdak Ghajari.'}
     ] }
 ];
 
 const list = document.getElementById('list');
-const inputs = { fit:document.getElementById('w-fit'), dual:document.getElementById('w-dual'), loc:document.getElementById('w-loc'), fund:document.getElementById('w-fund') };
+const inputs = { fit:document.getElementById('w-fit'), dual:document.getElementById('w-dual'), loc:document.getElementById('w-loc'), prac:document.getElementById('w-prac'), fund:document.getElementById('w-fund') };
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function weights(){ return { fit:+inputs.fit.value, dual:+inputs.dual.value, loc:+inputs.loc.value, fund:+inputs.fund.value }; }
+function weights(){ return { fit:+inputs.fit.value, dual:+inputs.dual.value, loc:+inputs.loc.value, prac:+inputs.prac.value, fund:+inputs.fund.value }; }
 function score(d,w){
-  const t = w.fit + w.dual + w.loc + w.fund;
+  const t = w.fit + w.dual + w.loc + w.prac + w.fund;
   if(!t) return 0;
-  return (d.fit*w.fit + d.dual*w.dual + d.loc*w.loc + d.fund*w.fund) / t;
+  return (d.fit*w.fit + d.dual*w.dual + d.loc*w.loc + d.prac*w.prac + d.fund*w.fund) / t;
 }
 function loadNote(id){ try { return localStorage.getItem('phdnote:'+id) || ''; } catch(e){ return ''; } }
 function saveNote(id,v){ try { localStorage.setItem('phdnote:'+id, v); } catch(e){} }
@@ -510,6 +525,7 @@ function build(){
             '<span class="bar f"><i style="height:' + (d.fit*10) + '%"></i></span>' +
             '<span class="bar d"><i style="height:' + (d.dual*10) + '%"></i></span>' +
             '<span class="bar l"><i style="height:' + (d.loc*10) + '%"></i></span>' +
+            '<span class="bar p"><i style="height:' + (d.prac*10) + '%"></i></span>' +
             '<span class="bar m"><i style="height:' + (d.fund*10) + '%"></i></span>' +
           '</span>' +
           '<span class="score"></span><span class="chev">›</span>' +
@@ -579,8 +595,8 @@ Object.entries(inputs).forEach(([k, inp]) => {
 
 document.querySelectorAll('#presets button').forEach(b => {
   b.addEventListener('click', () => {
-    const [f,d,l,m] = b.dataset.p.split(',').map(Number);
-    inputs.fit.value = f; inputs.dual.value = d; inputs.loc.value = l; inputs.fund.value = m;
+    const [f,d,l,pr,m] = b.dataset.p.split(',').map(Number);
+    inputs.fit.value = f; inputs.dual.value = d; inputs.loc.value = l; inputs.prac.value = pr; inputs.fund.value = m;
     Object.values(inputs).forEach(i => i.nextElementSibling.textContent = (+i.value).toFixed(1));
     document.querySelectorAll('#presets button').forEach(x => x.setAttribute('aria-pressed','false'));
     b.setAttribute('aria-pressed','true');
