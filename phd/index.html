@@ -188,9 +188,9 @@
 
 <div class="wrap">
 <header>
-  <p class="kicker">PhD 2027 · shortlist · 2026.09.09 검증</p>
+  <p class="kicker">PhD 2027 · shortlist · 2026.09.15 갱신 · 지도교수 전원 확인</p>
   <h1>순위는 사실이 아니라 함수다</h1>
-  <p class="thesis">아홉 곳을 세 축으로 채점했다. 어디가 1위인지는 <b>무엇에 무게를 두느냐</b>에
+  <p class="thesis">열한 곳을 세 축으로 채점했다. 어디가 1위인지는 <b>무엇에 무게를 두느냐</b>에
   전적으로 달려 있다 — 그러니 직접 가중치를 옮겨보고, 순위가 어떻게 흔들리는지 보라.</p>
 </header>
 
@@ -335,11 +335,12 @@
 
 <section>
   <h2>아직 확인 안 된 것</h2>
-  <p class="lede">사람은 옮겨 다닌다. 위의 모든 이름은 확정이 아니라 단서로 다루고,
+  <p class="lede">이번에 빈칸을 채웠다. 다만 사람은 옮겨 다니니 위의 모든 이름은 확정이 아니라 단서로 다루고,
   메일 쓰기 전에 해당 기관 페이지에서 재확인할 것.</p>
   <ul class="todo">
-    <li>스웨덴 3개교의 개별 교수 — KTH·Umeå·Malmö는 프로그램 평판만으로 매긴 점수다</li>
-    <li>QMUL에 리스트를 유지할 만한 <em>다른</em> 근거 교수가 있는지</li>
+    <li><s>스웨덴 3개교의 개별 교수</s> — 채웠다: Höök(KTH) · Wiltse·Wilde·Gil-Salas(Umeå) · 문의 Magnus Andersson(Malmö)</li>
+    <li><s>QMUL에 다른 근거 교수가 있는지</s> — <strong>MAT PhD 프로그램은 폐쇄됐다</strong>("now closed and does not accept applications"). 리스트에서 뺀다</li>
+    <li>Bauhaus Weimar의 Fakultät Kunst und Gestaltung 개별 교수 — 프로그램만 확인했다</li>
     <li>각 학교가 2027 마감일을 공개하면 갱신</li>
     <li>DCODE 네트워크가 다음 코호트를 모집하는지</li>
   </ul>
@@ -386,7 +387,7 @@ const DATA = [
     reads:[
       {t:'Contestable AI by Design (박사논문 전문)', m:'Alfrink · TU Delft · 2024', u:'https://repository.tudelft.nl/islandora/object/uuid:be74f232-8507-4394-b678-f617308158bc', w:'네 다음 단계의 설계도. 최소한 서론과 프레임워크 장은 읽고 가야 한다.'},
       {t:'Contestable AI by Design: Towards a Framework', m:'Alfrink, Keller, Kortuem, Doorn · Minds & Machines 2023', u:'https://research.tudelft.nl/en/publications/contestable-ai-by-design-towards-a-framework/', w:'논문 판. 논문 자체보다 짧다.'},
-      {t:'Kars Alfrink — 현재 작업 "People\\'s Compute"', m:'TU Delft 프로필', u:'https://www.tudelft.nl/en/ide/about-ide/people/alfrink-cp', w:'그가 지금 어디로 가고 있는지. 컨택 메일은 여기에 맞춰야 한다.'}
+      {t:'Kars Alfrink — 현재 작업 "People’s Compute"', m:'TU Delft 프로필', u:'https://www.tudelft.nl/en/ide/about-ide/people/alfrink-cp', w:'그가 지금 어디로 가고 있는지. 컨택 메일은 여기에 맞춰야 한다.'}
     ] },
   { id:'ncl', name:'Open Lab', place:'Newcastle University',
     fit:9, dual:9, fund:7.5, fundLabel:'NINE DTP / EPSRC', fundClass:'mid',
@@ -426,17 +427,44 @@ const DATA = [
       {t:'XAIxArts 워크숍 시리즈', m:'2023 → 2025', u:'https://xaixarts.github.io/2024.html', w:'커뮤니티가 어디 모이는지. 네 결과를 워크숍 페이퍼로 낼 자리이기도 하다.'}
     ] },
   { id:'se', name:'KTH · Umeå · Malmö', place:'Sweden',
-    fit:8, dual:8, fund:10, fundLabel:'급여직 (스웨덴 박사)', fundClass:'good',
-    sup:'개별 교수 미확인 — 프로그램 단위 점수',
-    why:'soma design, research-through-design, 그리고 깊은 참여디자인 전통이 전부 급여직 위에 있다. 네 방법론의 felt-governance 갈래가 자연스럽게 앉는 자리다. 다만 프로그램 평판만으로 매긴 점수라 <strong>사람을 확인하기 전엔 다른 곳과 나란히 놓고 비교하면 안 된다.</strong>',
-    flags:['지도교수 미확인'],
-    reads:[] },
-  { id:'de', name:'HfK Bremen · Bauhaus Weimar', place:'Germany · 예술박사',
-    fit:8.5, dual:4, fund:4, fundLabel:'대개 무급 · 학비는 낮음', fundClass:'risk',
-    sup:'예술연구 지도. 실증 방법론은 사실상 미지원',
-    why:'작품을 만들게는 해주지만 실증 절반을 지도 없이 남겨두는, 좋은 학교들이다. 통계가 네가 가진 것 중 더 희귀한 절반이라는 점에서 비싼 거래다. 설치 자체가 논문의 본체라고 마음을 정할 때에만 재고할 것.',
-    flags:['실증 절반 지도 공백'],
-    reads:[] }
+    fit:8.5, dual:8.5, fund:10, fundLabel:'급여직 (스웨덴 박사)', fundClass:'good',
+    sup:'KTH MID — Kristina Höök (Professor of Interaction Design, soma design) · Umeå UID — Heather Wiltse (Associate Prof · 연구환경 코디네이터) · Danielle Wilde · Pamela Gil-Salas (디지털 거버넌스·기술윤리) · Malmö K3 — 박사과정 문의 Magnus Andersson',
+    why:'이번에 사람을 채웠다. <strong>Höök</strong>은 soma design을 만든 사람이고 2026년에도 그 계보의 논문을 쓰고 있다 — 네 "felt governance" 방법론 축이 여기 앉는다. <strong>Wiltse</strong>는 <em>Changing Things</em>의 공저자로 <em>사물이 우리를 어떻게 읽는지</em>를 다루고, Umeå의 Gil-Salas는 "Big Tech의 식민적 유산"과 디지털 권력을 연구해 네 governance 축과 직접 겹친다. Malmö K3는 참여디자인 전통이 깊고 <strong>지도교수 2인이 필수</strong>다. 세 곳 다 급여직 4년(교육 20% 포함 시 보통 5년).',
+    flags:['급여직 4년','soma design 본산','지도 2인(Malmö)'],
+    reads:[
+      {t:'Designing with the Body: Somaesthetic Interaction Design', m:'Höök · MIT Press 2018', u:'https://mitpress.mit.edu/9780262551465/designing-with-the-body/', w:'네 "몸으로 측정하는 거버넌스"의 방법론 원전. KTH 컨택 전 필독.'},
+      {t:'Kristina Höök — KTH 출판목록', m:'MID', u:'https://www.kth.se/profile/khook/publications/', w:'2026년 TOCHI 논문까지 — 지금 어디로 가는지 확인.'},
+      {t:'Umeå Institute of Design — 연구', m:'UID', u:'https://www.umu.se/en/umea-institute-of-design/research/', w:'Wiltse가 연구환경 코디네이터 = 첫 문의 창구.'},
+      {t:'PhD Programme in Industrial Design', m:'Umeå UID', u:'https://www.umu.se/en/umea-institute-of-design/education/programmes/phd-programme/', w:'240 ECTS · 4년 · 주지도+부지도 구조.'},
+      {t:'Design 박사과정 (K3)', m:'Malmö University', u:'https://mau.se/en/research/research-subjects/design/', w:'문의 Magnus Andersson. 공동설계·참여디자인 중심.'}
+    ] },
+  { id:'bremen', name:'HfK Bremen — Binational Artistic PhD', place:'Germany · Digital Media / Integrated Design',
+    fit:8.5, dual:5, fund:4.5, fundLabel:'대개 무급 · 학비 낮음', fundClass:'risk',
+    sup:'Andrea Sick (Professor of Media & Cultural History · 프로그램 총괄) · <strong>Ralf Baecker</strong> · Dennis Paul · Tanja Diezmann · Asli Serbest · Mona Schieren',
+    why:'사람을 채우고 나니 독일 셋 중 가장 올라간다. <strong>Ralf Baecker</strong>가 여기 교수다 — 알고리즘과 기계를 물리적 설치로 만드는 작가라 네 벤치와 계보가 거의 정확히 겹친다. HfK는 2020년부터 Fine Arts와 Design(Integrated Design·Digital Media)에서 <em>독자적으로</em> PhD in Arts를 수여할 수 있고, 4년 <strong>binational 프로그램</strong>(Leiden · Groningen · Gothenburg 공동)으로 운영된다. Sick이 그걸 이끈다. 다만 실증 방법론 지도는 여전히 없고 독일 예술박사는 대개 무급이다.',
+    flags:['Ralf Baecker','4년 binational','Leiden/Groningen/Gothenburg'],
+    reads:[
+      {t:'Binational Artistic PhD-Program', m:'HfK Bremen', u:'https://www.hfk-bremen.de/en/research/binational-artistic-phd-program', w:'구조·파트너대학·기간. 지원 전 필독.'},
+      {t:'Supervisors (전체 명단)', m:'artisticphd-hfkbremen.net', u:'https://artisticphd-hfkbremen.net/program/supervisors', w:'지도 가능한 교수 전원.'},
+      {t:'Admissions', m:'artisticphd-hfkbremen.net', u:'https://artisticphd-hfkbremen.net/program/admissions', w:'자격·서류·마감.'},
+      {t:'Lecturers in Digital Media', m:'HfK Bremen', u:'https://www.hfk-bremen.de/en/person/lecturers-digital-media', w:'Baecker 포함 — 작업 보고 컨택 여부 결정.'}
+    ] },
+  { id:'hfbk', name:'HFBK Hamburg — PhD in Art Practice', place:'Germany · 예술박사',
+    fit:8, dual:4, fund:4, fundLabel:'학비·펀딩 정보 없음', fundClass:'risk',
+    sup:'박사위원회 5인 — Kader Attia · Angela Bulloch · <strong>Simon Denny</strong> · Bettina Uppenkamp · Sophie Witt · 대리 4인(Omer Fast · Rajkamal Kahlon · Adina Pintilie · Konrad Renner) · 문의 Sara Hillnhütter',
+    why:'박사위원회에 <strong>Simon Denny</strong>가 있다 — 데이터 소유권·기술 인프라·플랫폼 권력을 전시로 다루는 작가라, 네 주제를 미술 쪽 언어로 이해할 사람이다. 3년, 예술작업이 본체이고 11 SWS 코스워크가 붙는다. 7개 학과 중 <em>Time-based Media</em> 또는 <em>Design</em> 소속. <strong>지원이 2026년 9월 1일 열렸다 — 지금 열려 있는 유일한 곳.</strong> 실증 절반은 여전히 지도 공백이고 독일어+영어가 필요하다.',
+    flags:['Simon Denny','지금 열림 (9/1~)','독일어+영어'],
+    reads:[
+      {t:'PhD in Art Practice', m:'HFBK Hamburg', u:'https://hfbk-hamburg.de/en/study/study-programs/phd-in-art-practice/', w:'구조·위원회·지원. 문의 Sara Hillnhütter (Officer for Artistic Research).'}
+    ] },
+  { id:'weimar', name:'Bauhaus Weimar — Dr. phil. in Art and Design', place:'Germany · 예술박사',
+    fit:8, dual:4.5, fund:4, fundLabel:'Art&Design은 자비/외부장학', fundClass:'risk',
+    sup:'Promotionsstudiengang Kunst und Design · 구조화 과정이라 복수 교수 공동지도 · 개별 교수는 Fakultät Kunst und Gestaltung 페이지에서 확인 필요',
+    why:'세 학위 중 네게 맞는 건 <strong>Dr. phil. in Art and Design</strong> — 학술과 예술 작업을 결합하는 형태다. 3년 구조화 과정이고 <strong>마감 3월 31일</strong>(겨울학기), <strong>독일어와 영어 둘 다</strong> 요구한다. DFG 연구훈련그룹(펀딩 딸린 자리)은 건축·미디어 쪽에 있고 Art&Design엔 없어서 사실상 자비이거나 외부 장학금이다. 구조화 과정이라 복수 교수 공동지도가 기본인 건 장점.',
+    flags:['마감 3/31','독일어+영어','복수 교수 공동지도'],
+    reads:[
+      {t:'Doctoral Programmes', m:'Bauhaus-Universität Weimar', u:'https://www.uni-weimar.de/en/university/research-and-art/academic-careers/doctorate/doctoral-programmes/', w:'세 학위 구분과 Art&Design 과정 상세.'}
+    ] }
 ];
 
 const list = document.getElementById('list');
